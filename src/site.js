@@ -32,8 +32,8 @@ add('', {
     ${wl ? `<p class="mb-p">${wl}</p>` : `<p class="mb-p"><span class="cd" data-kickoff="${isoLocal(n.date, n.time)}" hidden></span></p>`}
     <p class="mb-a"><a href="${R}kalendar/zapas-${n.id}.ics" download>${I.cal}Do kalendára</a><a href="${R}${n.url}">Detail zápasu</a></p>
   </section>` : ''}
-  <section aria-labelledby="res-h">${secHead('Výsledky', 'res-h', more(`${R}zapasy/#z-vys`, 'Všetky'))}${fxList(results.filter((x) => x.score).slice(0, 5), R)}</section>
-  <section aria-labelledby="prog-h">${secHead('Program', 'prog-h', more(`${R}zapasy/`, 'Všetky'))}${upcoming.length ? fxList(upcoming.slice(0, 4), R) : '<p>Ďalšie zápasy zatiaľ nie sú vyžrebované.</p>'}</section>
+  <section aria-labelledby="res-h">${secHead('Výsledky', 'res-h', more(`${R}zapasy/#z-vys`, 'Všetky'))}${fxList(homeRes(5), R)}</section>
+  <section aria-labelledby="prog-h">${secHead('Program', 'prog-h', more(`${R}zapasy/`, 'Všetky'))}${homeUp(4).length ? fxList(homeUp(4), R) : '<p>Ďalšie zápasy zatiaľ nie sú vyžrebované.</p>'}</section>
   <p class="cry" aria-label="Pokrik klubu">${esc(club.pokrik)}</p>
   <section class="story" aria-labelledby="st-h">
     <h2 class="h2" id="st-h">${esc(club.titul.nadpis)}</h2>

@@ -8,7 +8,8 @@ a { color: var(--link, var(--ink)); text-underline-offset: .18em; text-decoratio
 a:hover { text-decoration-thickness: 2px; }
 :focus-visible { outline: 3px solid var(--focus, var(--ink)); outline-offset: 2px; }
 h1, h2, h3, h4, p, dl, dd, figure { margin: 0; }
-p + p { margin-top: .8em; }
+/* medzera medzi odsekmi len v súvislom texte, nie v odsekoch použitých ako prvky rozloženia */
+:where(.prose, .block, .band-r, .col, .book, .story, .cols3 > section, .cols2 > div, .sec > .wrap, .sec > .wrap > div, .klub-main) > p + p { margin-top: .8em; }
 abbr[title] { text-decoration: none; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .wrap { width: 100%; max-width: calc(var(--wrap, 1160px) + 2 * var(--gut)); margin: 0 auto; padding: 0 var(--gut); }
@@ -69,6 +70,8 @@ html:not(.js) .menu-btn { display: none; }
 .btns .btn { max-width: 100%; }
 .note, .ftr-src { font-size: .875rem; color: var(--muted); }
 .prose { max-width: 66ch; }
+.wrap.prose { max-width: calc(var(--wrap, 1160px) + 2 * var(--gut)); }
+.wrap.prose > * { max-width: 66ch; }
 .phead-sub { margin-top: 10px; max-width: 64ch; color: var(--muted); }
 .crumbs { display: flex; flex-wrap: wrap; margin-bottom: 10px; font-size: .9375rem; }
 .crumbs > * + *::before { content: '/' / ''; margin: 0 8px; color: var(--muted); }
