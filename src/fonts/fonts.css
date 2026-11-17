@@ -1,7 +1,5 @@
-/* Cormorant, Jost (SIL OFL 1.1), orezané na latinku strednej Európy */
-@font-face{font-family:'Cormorant';font-style:italic;font-weight:600;font-display:swap;src:url(cormorant-600i.woff) format("woff")}
-@font-face{font-family:'Cormorant';font-style:normal;font-weight:600;font-display:swap;src:url(cormorant-600.woff) format("woff")}
-@font-face{font-family:'Cormorant';font-style:normal;font-weight:700;font-display:swap;src:url(cormorant-700.woff) format("woff")}
-@font-face{font-family:'Jost';font-style:normal;font-weight:400;font-display:swap;src:url(jost-400.woff) format("woff")}
-@font-face{font-family:'Jost';font-style:normal;font-weight:500;font-display:swap;src:url(jost-500.woff) format("woff")}
-@font-face{font-family:'Jost';font-style:normal;font-weight:600;font-display:swap;src:url(jost-600.woff) format("woff")}
+/* Gloock, Literata (SIL OFL 1.1), orezané na latinku strednej Európy */
+@font-face{font-family:'Gloock';font-style:normal;font-weight:400;font-display:swap;src:url(gloock-400.woff) format("woff")}
+@font-face{font-family:'Literata';font-style:italic;font-weight:400;font-display:swap;src:url(literata-400i.woff) format("woff")}
+@font-face{font-family:'Literata';font-style:normal;font-weight:400;font-display:swap;src:url(literata-400.woff) format("woff")}
+@font-face{font-family:'Literata';font-style:normal;font-weight:600;font-display:swap;src:url(literata-600.woff) format("woff")}

@@ -6,15 +6,13 @@ Ukážka: https://matuslenicky.github.io/tj-sk-radosina/ · administrácia (uká
 
 ## Vzhľad
 
-**„Ročníky“.** Na erbe klubu je vinohradnícky nôž a strapec hrozna, Radošina je vinárska obec. Sezóna je preto „ročník“ ako pri víne.
+**„Úzky stĺpec“ (dizajn v2, 17. 11. 2026).** Biely papier, tmavomodrá a svetlomodrá z klubových farieb. Písmo Gloock (titulky) a Literata (text).
 
-- úvod ako **vinárska etiketa**: krémový papier, vykrojené rohy, dvojitý rám, ročník, súťaž, poradie a pokrik „Pome ŠK!“,
-- **strapec ročníka**: každý ligový zápas áčka je jedna bobuľa (výhra plná, remíza svetlejšia, prehra prázdna), najnovší visí na špičke,
-- **vinotéka**: ročníky áčka od 2013/14 ako fľaše na polici, hladina vína = konečné umiestnenie, majstrovský ročník 2024/25 má zlatú kapsulu,
-- program ako **visačky na hrdlách fliaš**, výsledky ako **dná fliaš v pivnici** (regál s krížovými latkami),
-- forma ako rad bobúľ, riadky vinohradu ako jemné šikmé linky, menu na telefóne ako **visačka zavesená pod tlačidlom**,
-- farby z erbu (tmavomodrá, svetlomodrá), k tomu krémová etiketa, slamová farba vína a vínová farba pre prehry,
-- písmo **Cormorant** (etiketa; rovné číslice sú zapečené do písma v `scripts/fonts.py`) a **Jost**.
+- celý úvod je jeden úzky stĺpec ako v časopise: titulok, najbližší zápas áčka, výsledky, program, pokrik „Pome ŠK!“ ako veľký citát, začiatok príbehu „Titul je náš!“ a výrez tabuľky,
+- stránka Klub je celý článok o titule 2024/25 s citátom trénera, pod ním história, ročníky áčka, štadión a obec,
+- menu na telefóne je papierová plocha cez celú obrazovku.
+
+Web sa skladá zo spoločného jadra v2 (`kluby-siet/engine`: `python assemble.py <web>`), vlastný je `src/site.js` (úvod, Klub, nastavenia) a `src/css/skin.css`.
 
 ## Obsah a zdroje
 
