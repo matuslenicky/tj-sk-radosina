@@ -90,7 +90,8 @@ const upcoming = matches.filter((m) => !m.past);
 const results = matches.filter((m) => m.past).reverse();
 const RES = { w: 'Výhra', d: 'Remíza', l: 'Prehra' };
 const RES_S = { w: 'V', d: 'R', l: 'P' };
-const noScore = (m) => (m.teamObj.adult ? 'Sportnet výsledok neuvádza' : 'Výsledky prípraviek sa nezapisujú');
+const isPrep = (t) => /^U(\d|1[01])\b/.test(t.short); // prípravky (U11 a mladší) výsledky nezapisujú
+const noScore = (m) => (isPrep(m.teamObj) ? 'Výsledky prípraviek sa nezapisujú' : 'Sportnet výsledok neuvádza');
 
 // strelci tímu v sezóne (vlastné góly sa nerátajú)
 function scorers(slug) {
@@ -148,7 +149,8 @@ const CSP = [
 const NAV = [['zapasy/', 'Zápasy'], ['tabulky/', 'Tabuľky'], ['timy/', 'Tímy'], ['mladez/', 'Mládež'], ['klub/', 'Klub a ročníky'], ['ihrisko/', 'Ihrisko'], ['kontakt/', 'Kontakt']];
 const ST = club.stadion;
 const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${ST.geo.join(',')}`;
-const mapyUrl = `https://mapy.com/s/?q=${ST.geo.join(',')}`;
+// Mapy.com: oficiálne URL API (tvar /s/?q= vracia 404)
+const mapyUrl = `https://mapy.com/fnc/v1/showmap?mapset=basic&amp;center=${ST.geo[1]},${ST.geo[0]}&amp;zoom=16&amp;marker=true`;
 const A = teams[0];
 const DESC = `${club.nazov} – futbal v Radošine od roku ${club.zalozenie}. Zápasy, výsledky, tabuľky a súpisky áčka (${A.leagueName}), dorastu, žiakov a prípravky, ročníky áčka od 2013/14 a titul majstra okresu 2024/25.`;
 const nextHome = upcoming.find((m) => m.home && m.team === A.slug);
@@ -186,7 +188,7 @@ function shelf() {
   <ol class="shelf">${list.map((x) => {
     const lvl = x.poz ? (1 - (x.poz - 1) / Math.max(1, x.z - 1)) * 0.92 + 0.04 : 0;
     const y = (119 - lvl * 79).toFixed(1);
-    const sr = `${x.rok}, ${x.liga}: ${x.poz ? `${x.poz}. miesto ${zo(x.z)}` : 'bez umiestnenia'}${x.body != null ? `, ${plural(x.body, 'bod', 'body', 'bodov')}` : ''}${x.skore ? `, skóre ${x.skore}` : ''}${x.now ? ', priebežne po jeseni' : ''}${x.pozn ? `, ${x.pozn}` : ''}`;
+    const sr = `${x.rok}, ${x.liga}: ${x.poz ? `${x.poz}. miesto ${zo(x.z)}` : 'bez umiestnenia'}${x.body != null ? `, ${plural(x.body, 'bod', 'body', 'bodov')}` : ''}${x.skore ? `, skóre ${x.skore}` : ''}${x.now ? (winterNow ? ', po jeseni' : ', priebežne') : ''}${x.pozn ? `, ${x.pozn}` : ''}`;
     return `<li class="btl${x.majster ? ' btl--gold' : ''}${x.now ? ' btl--now' : ''}${x.poz ? '' : ' btl--empty'}">
     <svg class="btl-s" viewBox="0 0 40 120" aria-hidden="true" focusable="false"><g clip-path="url(#${id})"><rect class="btl-glass" width="40" height="120"/><rect class="btl-wine" y="${y}" width="40" height="${(120 - y).toFixed(1)}"/><rect class="btl-cap" width="40" height="15"/><rect class="btl-lab" x="9" y="72" width="22" height="24" rx="1"/></g><path class="btl-o" d="${body}"/></svg>
     <span class="btl-p" aria-hidden="true">${x.poz ? `${x.poz}.` : '–'}</span><span class="btl-y" aria-hidden="true">${esc(x.rok.replace(/^20(\d\d)\/(\d\d)$/, '$1/$2'))}</span>
@@ -321,7 +323,7 @@ function matchRow(m, R, { showTeam = true } = {}) {
   }
   return `<li class="mrow mrow--btl" data-team="${m.team}" data-where="${where}"><${tag} class="bt bt--${m.res || 'n'}"${href}>
   <span class="bt-c">${m.score ? `<span class="sr">${RES[m.res]}, </span><span class="bt-s">${esc(m.score)}</span><span class="bt-r" aria-hidden="true">${RES[m.res]}</span>` : '<span class="bt-na">bez výsledku</span>'}</span>
-  <span class="bt-l"><span class="bt-o">${esc(m.opponent)}</span><span class="bt-k">${dShort(m.date)}${showTeam ? ` · ${esc(m.teamObj.short)}` : ''} · ${where}</span></span>
+  <span class="bt-l"><span class="bt-o">${esc(m.opponent)}</span><span class="bt-k">${dShort(m.date)}${showTeam ? ` · <span class="nw">${esc(m.teamObj.short)}</span>` : ''} · ${where}</span></span>
 </${tag}></li>`;
 }
 const matchList = (list, R, opts) => `<ol class="mlist ${list.length && list.every((m) => m.past) ? 'mlist--cellar' : 'mlist--tags'}">${list.map((m) => matchRow(m, R, opts)).join('')}</ol>`;
@@ -354,7 +356,7 @@ const calBox = (file, R, id) => `<details class="cal" data-cal id="${id}">
 function cardPick(slug) {
   const list = teamMatches(slug);
   const next = list.find((m) => !m.past);
-  const last = [...list].reverse().find((m) => m.past && (m.score || !m.teamObj.adult));
+  const last = [...list].reverse().find((m) => m.past && (m.score || isPrep(m.teamObj)));
   const soon = next && (dObj(next.date) - dObj(TODAY)) / 864e5 <= 7;
   return soon ? next : last || next;
 }
@@ -384,7 +386,7 @@ function teamGrid(R, only = () => true) {
   <span class="tcard-s">${esc(t.adult ? 'Muži' : t.sub)}</span>
   <span class="tcard-l">${esc(t.leagueName)}</span>
   ${t.pos ? `<span class="tcard-p"><b>${t.pos}.</b> ${zo(t.of)}</span>` : '<span class="tcard-p">bez tabuľky</span>'}
-  ${coachOf(t) ? `<span class="tcard-k">tréner ${esc(coachOf(t))}</span>` : ''}
+  ${coachOf(t) ? `<span class="tcard-k">${coachRole(t)} ${esc(coachOf(t))}</span>` : ''}
 </a></li>`).join('') + '</ul>';
 }
 
@@ -394,6 +396,7 @@ const add = (route, opts) => pages.push({ route, ...opts });
 const crewRole = { coach: 'Tréner', assist_coach: 'Asistent trénera', coach_goalkeepers: 'Tréner brankárov', manager: 'Vedúci mužstva', doctor: 'Lekár', physiotherapist: 'Fyzioterapeut', masseur: 'Masér', club_representative: 'Zástupca klubu', security_manager: 'Hlavný usporiadateľ', other: 'Člen realizačného tímu' };
 const POS = [['goalkeeper', 'Brankári'], ['defender', 'Obrancovia'], ['midfielder', 'Stredopoliari'], ['forward', 'Útočníci'], ['', 'Hráči']];
 const coachOf = (t) => t.squad.crew.find((c) => c.role === 'coach')?.name || t.squad.crew.find((c) => c.role === 'manager')?.name || '';
+const coachRole = (t) => (t.squad.crew.some((c) => c.role === 'coach') ? 'tréner' : 'vedúci'); // rovnako ako na /mladez/ a v realizačnom tíme
 const leagueMatches = (slug) => teamMatches(slug).filter((m) => !m.cup && m.res);
 const T = club.titul;
 
@@ -432,7 +435,7 @@ add('', {
   <div class="hero-side">
     ${lm.length ? `<figure class="hero-grape">${strapec(lm, `Strapec ročníka ${SEASON}: ${plural(lm.length, 'ligový zápas', 'ligové zápasy', 'ligových zápasov')} áčka, ${plural(lg.w, 'výhra', 'výhry', 'výhier')}, ${plural(lg.d, 'remíza', 'remízy', 'remíz')}, ${plural(lg.l, 'prehra', 'prehry', 'prehier')}`)}
       <figcaption><b>Strapec ročníka.</b> Každá bobuľa je jeden ligový zápas áčka, najnovší visí dole na špičke.${berryKey(lg)}</figcaption></figure>` : ''}
-    <p class="hero-p">Majster okresu ${esc(club.rocniky.zoznam.find((x) => x.majster)?.rok || '')}. ${prev ? `V prvom ročníku po postupe skončila Radošina vo VI. lige na ${prev.poz}. mieste, teraz hrá druhý ročník medzi ${A.of} tímami Severovýchodu. ` : ''}Po desiatich rokoch zase aj s dorastom.</p>
+    <p class="hero-p">Majster okresu ${esc(club.rocniky.zoznam.find((x) => x.majster)?.rok || '')}. ${prev ? `V prvom ročníku po postupe skončila Radošina v VI. lige na ${prev.poz}. mieste, teraz hrá druhý ročník medzi ${A.of} tímami Severovýchodu. ` : ''}Po desiatich rokoch zase aj s dorastom.</p>
     <p class="hero-cta"><a class="btn btn--sky" href="${R}zapasy/">Program a výsledky</a><a class="btn btn--ghost" href="${R}klub/">Ročníky áčka</a></p>
   </div>
 </div></section>
@@ -476,7 +479,7 @@ ${A.table ? `<section class="sec" aria-labelledby="liga-h"><div class="wrap">
 </div></section>
 <section class="sec sec--cream" aria-labelledby="ml-h"><div class="wrap">
   ${secHead('Mladé ročníky', 'ml-h', more(`${R}mladez/`, 'Mládež a nábor'), 'Mládež')}
-  <p class="lead">Dorast sa do Radošiny vrátil v roku 2025 po desiatich rokoch, od ročníka ${SEASON} pribudli starší žiaci U15. Najmenší hrajú v prípravke U11.</p>
+  <p class="lead">Dorast sa do Radošiny vrátil v roku 2025 po desiatich rokoch, od ročníka 2026/27 pribudli starší žiaci U15. Najmenší hrajú v prípravke U11.</p>
   ${teamGrid(R, (t) => !t.adult)}
 </div></section>
 <section class="sec" aria-labelledby="ob-h"><div class="wrap">
@@ -632,14 +635,14 @@ add('mladez/', {
     return `${pageHead({ title: 'Mládež', sub: `${plural(youth.length, 'mládežnícky tím', 'mládežnícke tímy', 'mládežníckych tímov')} v ročníku ${SEASON}: dorast, žiaci a prípravka.`, R, crumbs: [[null, 'Mládež']] })}
 <section class="sec sec--first"><div class="wrap youth-top">
   <div>
-    <p class="lead">Dorast sa vrátil v roku 2025 po desiatich rokoch. Klubu bolo ľúto, že chlapci z obce musia chodiť hrávať do susedných dedín, a tak tím obnovil. Hrá IV. ligu U19 Západoslovenského futbalového zväzu. Od ročníka ${SEASON} pribudli starší žiaci U15, prípravka U11 hrá súťaž Oblastného futbalového zväzu Topoľčany.</p>
-    <ul class="coaches">${youth.map((t) => `<li><a href="${R}${t.url}"><b>${esc(t.short)}</b><span>${esc(t.sub)} · ${esc(t.leagueName)}${t.pos ? ` · ${t.pos}. miesto` : ''}</span>${coachOf(t) ? `<small>${t.squad.crew.some((c) => c.role === 'coach') ? 'tréner' : 'vedúci'} ${esc(coachOf(t))}</small>` : ''}</a></li>`).join('')}</ul>
+    <p class="lead">Dorast sa vrátil v roku 2025 po desiatich rokoch. Klubu bolo ľúto, že chlapci z obce musia chodiť hrávať do susedných dedín, a tak dorast obnovil. Hrá IV. ligu U19 Západoslovenského futbalového zväzu. Od ročníka 2026/27 pribudli starší žiaci U15, prípravka U11 hrá súťaž Oblastného futbalového zväzu Topoľčany.</p>
+    <ul class="coaches">${youth.map((t) => `<li><a href="${R}${t.url}"><b>${esc(t.short)}</b><span>${esc(t.sub)} · ${esc(t.leagueName)}${t.pos ? ` · ${t.pos}. miesto` : ''}</span>${coachOf(t) ? `<small>${coachRole(t)} ${esc(coachOf(t))}</small>` : ''}</a></li>`).join('')}</ul>
     <p class="src">Tréneri, súťaže a poradie podľa Sportnetu, história dorastu podľa Radošinských novín 2/2025.</p>
   </div>
   <aside class="join">
     <p class="eyebrow">Nábor</p>
     <h2 class="h3">Prvý tréning</h2>
-    <p>Chcete, aby vaše dieťa hralo futbal v Radošine? Napíšte klubu, kedy trénuje jeho vekový tím. Klub pozýva aj chlapcov do dorastu.</p>
+    <p>Chcete, aby vaše dieťa hralo futbal v Radošine? Napíšte klubu a opýtajte sa, kedy trénuje jeho vekový tím. Klub pozýva aj chlapcov do dorastu.</p>
     <p class="btns"><a class="btn btn--navy" href="mailto:${club.kontakt.email}?subject=${encodeURIComponent('Nábor do mládeže')}">${I.mail}Napísať klubu</a></p>
   </aside>
 </div></section>
@@ -661,7 +664,7 @@ add('klub/', {
 <section class="sec sec--first"><div class="wrap klub-grid">
   <div>
     <h2 class="h2">Z kroniky</h2>
-    <ol class="annals">${club.historia.map((x) => `<li><p class="annals-y">${esc(x.rok)}</p><div><p>${esc(x.text)}</p><small>${esc(x.zdroj)}</small></div></li>`).join('')}<li class="annals-now"><p class="annals-y">${SEASON}</p><div><p>Áčko hrá ${esc(acc(A.leagueName))}${A.pos ? ` a ${winterNow ? 'po jeseni ' : ''}je na ${A.pos}. mieste` : ''}. V klube hrajú ${plural(teams.length, 'tím', 'tímy', 'tímov')}, od tohto ročníka aj starší žiaci U15, takže po rokoch zase od prípravky po áčko.</p><small>Sportnet</small></div></li></ol>
+    <ol class="annals">${club.historia.map((x) => `<li><p class="annals-y">${esc(x.rok)}</p><div><p>${esc(x.text)}</p><small>${esc(x.zdroj)}</small></div></li>`).join('')}<li class="annals-now"><p class="annals-y">${SEASON}</p><div><p>Áčko hrá ${esc(acc(A.leagueName))}${A.pos ? ` a ${winterNow ? 'po jeseni ' : ''}je na ${A.pos}. mieste` : ''}. V klube hrajú ${plural(teams.length, 'tím', 'tímy', 'tímov')}, od ročníka 2026/27 aj starší žiaci U15, takže po rokoch zase od prípravky po áčko.</p><small>Sportnet</small></div></li></ol>
   </div>
   <aside class="klub-aside">
     <img src="${R}img/erb-480.webp" alt="${esc(club.erbAlt)}" width="180" height="200" loading="lazy">
@@ -841,6 +844,8 @@ fs.writeFileSync(path.join(OUT, 'css', 'site.css'), fontsCss + fs.readFileSync(p
 const NB = ' ';
 const typo = (html) => html.split(/(<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>)/).map((part, i) => (i % 2 ? part : part.replace(/>([^<]+)</g, (m, t) => '>' + t
   .replace(/(?<=^|[\s(„])([AaIiKkOoSsUuVvZz])[ \t]+(?=\S)/g, `$1${NB}`)
+  .replace(/(?<=^|[\s(])(zo|vo|so|ku) (?=\S)/g, `$1${NB}`) // „zo 16“, „vo IV. lige“
+  .replace(/ · /g, `${NB}· `) // oddeľovač „·“ nezačne riadok
   .replace(/(\d) : (\d)/g, `$1${NB}:${NB}$2`)
   .replace(/ - /g, ' – ') // spojovník medzi medzerami (názvy klubov a ihrísk zo Sportnetu) -> pomlčka
   .replace(/\b(U\d{1,2}) ([A-D])\b/g, `$1${NB}$2`) // „U15 A“ sa nerozdelí

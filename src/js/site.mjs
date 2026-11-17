@@ -6,7 +6,13 @@ const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const menuBtn = $('.menu-btn'), menu = $('#menu');
 if (menuBtn && menu && typeof menu.showModal === 'function') {
   const close = () => { if (menu.open) menu.close(); };
-  menuBtn.addEventListener('click', () => { menu.showModal(); document.documentElement.classList.add('menu-open'); });
+  menuBtn.addEventListener('click', () => {
+    // hlavička nie je prilepená: pri mierne posunutej stránke posunúť visačku hore, aby šnúrka visela pod tlačidlom
+    // (CSSOM, nie atribút style, takže to CSP pustí)
+    const shift = Math.max(0, Math.min(scrollY, parseFloat(getComputedStyle(menu).paddingTop) - 12));
+    menu.style.translate = shift ? `0 ${-shift}px` : '';
+    menu.showModal(); document.documentElement.classList.add('menu-open');
+  });
   menu.addEventListener('close', () => { document.documentElement.classList.remove('menu-open'); menuBtn.focus(); });
   $('[data-close]', menu).addEventListener('click', close);
   // klik na odkaz alebo na stmavené pozadie pod panelom (cieľ je vtedy samotný <dialog>, mimo jeho obdĺžnika)

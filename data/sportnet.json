@@ -2,7 +2,7 @@
  "source": "Sportnet / Futbalnet",
  "appSpace": "tj-sk-radosina.futbalnet.sk",
  "season": "2026/2027",
- "updated": "2026-11-17T13:50:45.479Z",
+ "updated": "2026-11-17T14:19:29.100Z",
  "teams": [
   {
    "slug": "a-muzstvo",
@@ -791,7 +791,6 @@
    "url": "https://sportnet.sme.sk/futbalnet/z/1/zapas/929311",
    "half": "1:0",
    "referee": "Peter Žember",
-   "audience": 300,
    "lineups": {
     "our": {
      "start": [
@@ -1051,6 +1050,7 @@
      }
     ]
    },
+   "audience": 300,
    "detail": true
   },
   {
@@ -1110,7 +1110,6 @@
    "url": "https://sportnet.sme.sk/futbalnet/z/5/zapas/987605",
    "half": "0:1",
    "referee": "Rudolf Frič",
-   "audience": 150,
    "lineups": {
     "our": {
      "start": [
@@ -1363,6 +1362,7 @@
      }
     ]
    },
+   "audience": 150,
    "detail": true
   },
   {
@@ -1458,7 +1458,6 @@
    "url": "https://sportnet.sme.sk/futbalnet/z/5/zapas/987616",
    "half": "0:1",
    "referee": "Ľudovít Černý",
-   "audience": 200,
    "lineups": {
     "our": {
      "start": [
@@ -1710,6 +1709,7 @@
      }
     ]
    },
+   "audience": 200,
    "detail": true
   },
   {
@@ -1871,7 +1871,6 @@
    "url": "https://sportnet.sme.sk/futbalnet/z/5/zapas/987622",
    "half": "0:1",
    "referee": "Michal Ďurčo",
-   "audience": 100,
    "lineups": {
     "our": {
      "start": [
@@ -2142,6 +2141,7 @@
      }
     ]
    },
+   "audience": 100,
    "detail": true
   },
   {
@@ -2422,7 +2422,6 @@
    "url": "https://sportnet.sme.sk/futbalnet/z/5/zapas/987631",
    "half": "0:2",
    "referee": "Marian Dragula",
-   "audience": 150,
    "lineups": {
     "our": {
      "start": [
@@ -2674,6 +2673,7 @@
      }
     ]
    },
+   "audience": 150,
    "detail": true
   },
   {
@@ -3008,7 +3008,6 @@
    "url": "https://sportnet.sme.sk/futbalnet/z/5/zapas/987639",
    "half": "1:0",
    "referee": "Jozef Piaček",
-   "audience": 100,
    "lineups": {
     "our": {
      "start": [
@@ -3319,6 +3318,7 @@
      }
     ]
    },
+   "audience": 100,
    "detail": true
   },
   {
@@ -3587,7 +3587,6 @@
    "url": "https://sportnet.sme.sk/futbalnet/z/5/zapas/987646",
    "half": "2:1",
    "referee": "Karol Oselský",
-   "audience": 200,
    "lineups": {
     "our": {
      "start": [
@@ -3819,6 +3818,7 @@
      }
     ]
    },
+   "audience": 200,
    "detail": true
   },
   {
@@ -4128,7 +4128,6 @@
    "url": "https://sportnet.sme.sk/futbalnet/z/5/zapas/987656",
    "half": "1:0",
    "referee": "Mário Kiss",
-   "audience": 123,
    "lineups": {
     "our": {
      "start": [
@@ -4433,6 +4432,7 @@
      }
     ]
    },
+   "audience": 123,
    "detail": true
   },
   {
@@ -4706,7 +4706,6 @@
    "url": "https://sportnet.sme.sk/futbalnet/z/5/zapas/987661",
    "half": "2:0",
    "referee": "Jaroslav Boledovič",
-   "audience": 120,
    "lineups": {
     "our": {
      "start": [
@@ -4978,6 +4977,7 @@
      }
     ]
    },
+   "audience": 120,
    "detail": true
   },
   {
@@ -5238,7 +5238,6 @@
    "url": "https://sportnet.sme.sk/futbalnet/z/5/zapas/987673",
    "half": "1:1",
    "referee": "Dávid Slatkovský",
-   "audience": 100,
    "lineups": {
     "our": {
      "start": [
@@ -5491,6 +5490,7 @@
      }
     ]
    },
+   "audience": 100,
    "detail": true
   },
   {
@@ -5753,7 +5753,6 @@
    "url": "https://sportnet.sme.sk/futbalnet/z/5/zapas/987676",
    "half": "0:1",
    "referee": "Róbert Berec",
-   "audience": 100,
    "lineups": {
     "our": {
      "start": [
@@ -6012,6 +6011,7 @@
      }
     ]
    },
+   "audience": 100,
    "detail": true
   },
   {
@@ -6358,7 +6358,6 @@
    "url": "https://sportnet.sme.sk/futbalnet/z/5/zapas/987690",
    "half": "2:1",
    "referee": "Erik Barát",
-   "audience": 250,
    "lineups": {
     "our": {
      "start": [
@@ -6618,6 +6617,7 @@
      }
     ]
    },
+   "audience": 250,
    "detail": true
   },
   {
@@ -7022,7 +7022,6 @@
    "url": "https://sportnet.sme.sk/futbalnet/z/5/zapas/987691",
    "half": "2:1",
    "referee": "Sebastián Prešinský",
-   "audience": 120,
    "lineups": {
     "our": {
      "start": [
@@ -7301,6 +7300,7 @@
      }
     ]
    },
+   "audience": 120,
    "detail": true
   },
   {
@@ -7455,7 +7455,6 @@
    "url": "https://sportnet.sme.sk/futbalnet/z/5/zapas/987706",
    "half": "2:0",
    "referee": "Miroslav Kohút",
-   "audience": 200,
    "lineups": {
     "our": {
      "start": [
@@ -7721,6 +7720,7 @@
      }
     ]
    },
+   "audience": 200,
    "detail": true
   },
   {
@@ -8055,7 +8055,6 @@
    "url": "https://sportnet.sme.sk/futbalnet/z/5/zapas/987708",
    "half": "2:0",
    "referee": "Ján Vido",
-   "audience": 150,
    "lineups": {
     "our": {
      "start": [
@@ -8347,6 +8346,7 @@
      }
     ]
    },
+   "audience": 150,
    "detail": true
   },
   {
@@ -8477,7 +8477,6 @@
    "url": "https://sportnet.sme.sk/futbalnet/z/5/zapas/987721",
    "half": "0:1",
    "referee": "Marian Barczi",
-   "audience": 100,
    "lineups": {
     "our": {
      "start": [
@@ -8762,6 +8761,7 @@
      }
     ]
    },
+   "audience": 100,
    "detail": true
   },
   {
