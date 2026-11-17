@@ -18,7 +18,6 @@ add('', {
   title: `futbal od roku ${club.zalozenie}`, active: '', bodyClass: 'home',
   body: (R) => {
     const n = nextA, l = lastA;
-    const wl = winterLine();
     return `<article class="col">
   <header class="col-head">
     <p class="kicker">Ročník ${SEASON} · ${esc(A.leagueName)}${A.pos ? ` · ${A.pos}. miesto` : ''}</p>
@@ -26,10 +25,10 @@ add('', {
     <p class="col-lead">Futbal v Radošine od roku ${club.zalozenie}. Majster VII. ligy ObFZ Topoľčany 2024/25, od jesene 2025 v krajskej VI. lige.</p>
   </header>
   ${n ? `<section class="match-box" aria-labelledby="nx-h">
-    <h2 class="label" id="nx-h">Najbližší zápas áčka</h2>
-    <p class="mb-o">${n.home ? `Radošina – ${esc(n.opponent)}` : `${esc(n.opponent)} – Radošina`}</p>
+    <h2 class="label" id="nx-h">${winterNow ? 'Áčko po zimnej prestávke' : 'Najbližší zápas áčka'}</h2>
+    <p class="mb-o">${n.home ? `Radošina${NB}– ${glueAbbr(esc(n.opponent))}` : `${glueAbbr(esc(n.opponent))}${NB}– Radošina`}</p>
     <p class="mb-d"><time datetime="${n.date}">${dLong(n.date)}</time>, ${esc(n.time || '')}${n.home ? `, ${esc(ST.nazov)}` : ''}</p>
-    ${wl ? `<p class="mb-p">${wl}</p>` : `<p class="mb-p"><span class="cd" data-kickoff="${isoLocal(n.date, n.time)}" hidden></span></p>`}
+    ${winterNow ? '' : `<p class="mb-p"><span class="cd" data-kickoff="${isoLocal(n.date, n.time)}" hidden></span></p>`}
     <p class="mb-a"><a href="${R}kalendar/zapas-${n.id}.ics" download>${I.cal}Do kalendára</a><a href="${R}${n.url}">Detail zápasu</a></p>
   </section>` : ''}
   <section aria-labelledby="res-h">${secHead('Výsledky', 'res-h', more(`${R}zapasy/#z-vys`, 'Všetky'))}${fxList(homeRes(5), R)}</section>

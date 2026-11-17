@@ -1,4 +1,7 @@
 /* TJ-ŠK Radošina – „Úzky stĺpec“. Biely papier, tmavomodrá a svetlomodrá z klubových farieb. */
+/* Gloock má pomlčku ako vlasovú linku (hrúbka 10/1000 em): v „Radošina – Preseľany“ pri 27 px nebola vidieť.
+   Pomlčky v písme Gloock preto berieme z Literaty (rovnaký súbor ako text, nič navyše sa nesťahuje). */
+@font-face { font-family: 'Gloock'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/literata-400.woff) format("woff"); unicode-range: U+2013-2014; }
 :root {
   --bg: #fcfcfa; --paper: #fff; --ink: #1b2233; --muted: #566074; --line: #dfe3ea;
   --navy: #1f3a68; --sky: #7fb0d9; --sky-l: #eef5fb; --focus: #1f3a68; --link: #1f3a68;
@@ -28,6 +31,7 @@
 .nav a { padding: 0 10px; color: var(--ink); font-size: .9688rem; }
 .nav a[aria-current="page"] { color: var(--navy); text-decoration: underline; text-decoration-color: var(--sky); text-decoration-thickness: 3px; text-underline-offset: 7px; }
 .menu-btn { background: transparent; color: var(--navy); border: 1px solid var(--navy); border-radius: 4px; }
+@media (max-width: 379.98px) { .brand-n { font-size: 1.1rem; } .hdr-in { gap: 10px; } }
 .menu-k { font-family: var(--disp); color: var(--navy); font-size: 1.15rem; }
 .menu-nav a { font: 400 2rem/1.15 var(--disp); color: var(--navy); border-bottom: 1px solid var(--line); }
 .menu-nav a[aria-current="page"] { text-decoration: underline; text-decoration-color: var(--sky); text-decoration-thickness: 3px; }
@@ -97,6 +101,12 @@
 .chip[aria-pressed="true"] { background: var(--navy); color: #fff; }
 .teams a { border-bottom: 1px solid var(--line); }
 .teams-n { font-size: 1.7rem; color: var(--navy); }
+/* „A-mužstvo“ zo Sportnetu sa nezmestí do 80px stĺpca jadra (zalomilo sa na „A-“ a prekrylo ligu):
+   prvý stĺpec podľa najdlhšieho názvu, cez subgrid rovnako široký vo všetkých riadkoch */
+.teams { display: grid; grid-template-columns: max-content minmax(0, 1fr) auto; column-gap: 16px; }
+.teams li, .teams a { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; }
+.teams-n { white-space: nowrap; }
+@media (max-width: 559.98px) { .teams-n { font-size: 1.3rem; } }
 .teams-s { font-weight: 600; }
 .join { background: var(--sky-l); border-radius: 6px; }
 .stat b { font-size: 2.2rem; color: var(--navy); }
