@@ -5,142 +5,58 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-mvnHwz+lJQZdVAYqqUA1AagJMWjuGlUGzmpSslu4MpQ='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; manifest-src 'self'">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Návrh webu – Klub a ročníky | TJ-ŠK Radošina</title>
-<meta name="description" content="TJ-ŠK Radošina: futbal v Radošine od roku 1933, ročníky áčka od 2013/14, titul majstra okresu 2024/25 a obec Radošina.">
+<title>Návrh webu – Klub | TJ-ŠK Radošina</title>
+<meta name="description" content="TJ-ŠK Radošina: príbeh titulu 2024/25, história od roku 1933, ročníky áčka, štadión a obec Radošina.">
 <meta name="robots" content="noindex">
-<meta property="og:title" content="Návrh webu – Klub a ročníky | TJ-ŠK Radošina">
+<meta property="og:title" content="Návrh webu – Klub | TJ-ŠK Radošina">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="sk_SK">
-<meta name="theme-color" content="#0d2140">
+<meta name="theme-color" content="#1f3a68">
 <link rel="icon" type="image/png" href="../img/favicon.png">
 <link rel="apple-touch-icon" href="../img/apple-touch-icon.png">
-<link rel="preload" href="../fonts/cormorant-700.woff" as="font" type="font/woff" crossorigin>
-<link rel="preload" href="../fonts/jost-400.woff" as="font" type="font/woff" crossorigin>
-<link rel="preload" href="../fonts/jost-500.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="../fonts/gloock-400.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="../fonts/literata-400.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="../fonts/literata-600.woff" as="font" type="font/woff" crossorigin>
 <link rel="stylesheet" href="../css/site.css">
 <script>var d=document.documentElement;d.classList.add('js');if(/[?&](tim|kde)=/.test(location.search)){d.classList.add('flt');addEventListener('load',function(){d.classList.remove('flt')})}</script>
 <script type="module" src="../js/site.mjs"></script>
 </head>
-<body>
+<body class="v2">
 <a class="skip" href="#obsah">Preskočiť na obsah</a>
 <p class="demo">Návrh webu · nie je to oficiálna stránka klubu</p>
-<header class="hdr">
-  <div class="wrap hdr-in">
-    <a class="brand" href="../"><img src="../img/erb-128.webp" alt="" width="42" height="47"><span class="brand-t"><span class="brand-n">TJ-ŠK Radošina</span><span class="brand-s">ročník 2026/27<span class="brand-x"> · od 1933</span></span></span><span class="sr">, úvod</span></a>
-    <nav class="nav" aria-label="Hlavné menu"><ul><li><a href="../zapasy/">Zápasy</a></li><li><a href="../tabulky/">Tabuľky</a></li><li><a href="../timy/">Tímy</a></li><li><a href="../mladez/">Mládež</a></li><li><a href="../klub/" aria-current="page">Klub a ročníky</a></li><li><a href="../ihrisko/">Ihrisko</a></li><li><a href="../kontakt/">Kontakt</a></li></ul></nav>
-    <button class="menu-btn" type="button" aria-haspopup="dialog" aria-controls="menu"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
-  </div>
-</header>
-<dialog class="menu" id="menu" aria-label="Menu">
-  <div class="htag">
-    <div class="htag-top"><span class="htag-k">Ročník 2026/27</span><button class="menu-x" type="button" data-close><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Zavrieť</span></button></div>
-    <nav aria-label="Menu na telefóne"><ol class="htag-nav"><li><a href="../">Úvod</a></li><li><a href="../zapasy/">Zápasy</a></li><li><a href="../tabulky/">Tabuľky</a></li><li><a href="../timy/">Tímy</a></li><li><a href="../mladez/">Mládež</a></li><li><a href="../klub/" aria-current="page">Klub a ročníky</a></li><li><a href="../ihrisko/">Ihrisko</a></li><li><a href="../kontakt/">Kontakt</a></li></ol></nav>
-    <p class="htag-foot">Pome ŠK!</p>
-  </div>
-</dialog>
+<header class="hdr hdr--bar"><div class="wrap hdr-in"><a class="brand" href="../"><img src="../img/erb-128.webp" alt="" width="40" height="44"><span class="brand-t"><span class="brand-n">TJ-ŠK Radošina</span></span><span class="sr">, úvod</span></a><nav class="nav" aria-label="Hlavné menu"><ul><li><a href="../zapasy/">Zápasy</a></li><li><a href="../tabulky/">Tabuľky</a></li><li><a href="../timy/">Tímy</a></li><li><a href="../klub/" aria-current="page">Klub</a></li><li><a href="../kontakt/">Kontakt</a></li></ul></nav><button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-haspopup="dialog"><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button></div></header>
+<dialog class="menu" id="menu" aria-label="Menu"><div class="menu-in">
+  <div class="menu-top"><span class="menu-k">TJ-ŠK Radošina</span><button class="menu-x" type="button" data-close><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg><span>Zavrieť</span></button></div>
+  <ul class="menu-nav"><li><a href="../">Úvod</a></li><li><a href="../zapasy/">Zápasy</a></li><li><a href="../tabulky/">Tabuľky</a></li><li><a href="../timy/">Tímy</a></li><li><a href="../klub/" aria-current="page">Klub</a></li><li><a href="../kontakt/">Kontakt</a></li></ul>
+</div></dialog>
 <main id="obsah">
-<section class="phead"><div class="wrap phead-in">
-  <div><nav class="crumbs" aria-label="Omrvinky"><a href="../">Úvod</a><span aria-current="page">Klub</span></nav>
-  <h1 class="h1">Klub a ročníky</h1><p class="phead-sub">Telovýchovná jednota – Športový klub Radošina. Futbal v Radošine od roku 1933, farby tmavomodrá a svetlomodrá.</p></div>
-</div></section>
-<section class="sec sec--first"><div class="wrap klub-grid">
-  <div>
-    <h2 class="h2">Z kroniky</h2>
-    <ol class="annals"><li><p class="annals-y">1933</p><div><p>Rok založenia futbalu v Radošine uvádza erb klubu.</p><small>erb klubu</small></div></li><li><p class="annals-y">2014/15</p><div><p>Áčko končí v V. lige Stred tretie, o bod za druhými Tovarníkmi.</p><small>Sportnet</small></div></li><li><p class="annals-y">2018/19</p><div><p>Po návrate do okresnej VII. ligy strelí áčko 119 gólov v 22 zápasoch a skončí druhé.</p><small>Sportnet</small></div></li><li><p class="annals-y">2023</p><div><p>Pod trénerom Petrom Čierňavom začínajú trénovať najmenšie deti, prvý tréning bol 30. septembra na štadióne. Klubová budova dostala nové okná a tréningová plocha osvetlenie.</p><small>Radošinské noviny 3/2023</small></div></li><li><p class="annals-y">2024/25</p><div><p>Titul v VII. lige ObFZ Topoľčany o bod pred Čermanmi napriek odpočítaným trom bodom a postup do VI. ligy.</p><small>Radošinské noviny 2/2025, Sportnet</small></div></li><li><p class="annals-y">2025</p><div><p>Po desiatich rokoch sa vracia dorast, hrá IV. ligu U19 Západoslovenského zväzu. Na ihrisku pribudol závlahový systém.</p><small>Radošinské noviny 2/2025</small></div></li><li><p class="annals-y">2025</p><div><p>Vianočný futbalový turnaj 20. decembra na štadióne: štyri tímy, finále Káčerovské – Fratelli rozhodli až penalty, vyhralo Káčerovské.</p><small>Radošinské noviny 1/2026</small></div></li><li class="annals-now"><p class="annals-y">2026/27</p><div><p>Áčko hrá VI. ligu Severovýchod a po jeseni je na 13. mieste. V klube hrajú 4 tímy, od ročníka 2026/27 aj starší žiaci U15, takže po rokoch zase od prípravky po áčko.</p><small>Sportnet</small></div></li></ol>
-  </div>
-  <aside class="klub-aside">
-    <img src="../img/erb-480.webp" alt="Erb TJ-ŠK Radošina: modrý štít s nápisom ŠK Radošina, futbalová lopta medzi vinohradníckym nožom a strapcom hrozna, dole rok 1933" width="180" height="200" loading="lazy">
-    <p class="note">Na erbe klubu je vinohradnícky nôž a strapec hrozna, Radošina je vinárska obec.</p>
-    <h2 class="h4">Úspechy</h2>
-    <ul class="wins"><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.7V17c0 .6-.5 1-1 1.2C7.8 18.8 7 20.2 7 22M14 14.7V17c0 .6.5 1 1 1.2 1.2.6 2 2 2 3.8M18 2H6v7a6 6 0 0 0 12 0z"/></svg><span><b>2024/25</b> víťaz VII. ligy ObFZ Topoľčany, postup do VI. ligy</span></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.7V17c0 .6-.5 1-1 1.2C7.8 18.8 7 20.2 7 22M14 14.7V17c0 .6.5 1 1 1.2 1.2.6 2 2 2 3.8M18 2H6v7a6 6 0 0 0 12 0z"/></svg><span><b>2018/19, 2022/23</b> 2. miesto v VII. lige ObFZ Topoľčany</span></li><li><svg class="i" viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.7V17c0 .6-.5 1-1 1.2C7.8 18.8 7 20.2 7 22M14 14.7V17c0 .6.5 1 1 1.2 1.2.6 2 2 2 3.8M18 2H6v7a6 6 0 0 0 12 0z"/></svg><span><b>2014/15</b> 3. miesto v V. lige Stred</span></li></ul>
-    <p class="cry">Pome ŠK!</p>
-  </aside>
-</div></section>
-<section class="sec sec--navy" id="rocniky" aria-labelledby="roc2-h"><div class="wrap">
-  <div class="sec-head"><div><p class="eyebrow">Vinotéka</p><h2 class="h2" id="roc2-h">Ročníky áčka</h2></div></div>
-  <p class="lead">Hladina vína vo fľaši je konečné umiestnenie: plná fľaša je prvé miesto. Posledná fľaša je rozpitý ročník 2026/27.</p>
-  <div class="shelf-wrap"><svg class="shelf-defs" width="0" height="0" aria-hidden="true" focusable="false"><clipPath id="btl2"><path d="M16 2h8v24c0 5 10 9 10 19v70a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V45c0-10 10-14 10-19Z"/></clipPath></svg>
-  <ol class="shelf"><li class="btl">
-    <svg class="btl-s" viewBox="0 0 40 120" aria-hidden="true" focusable="false"><g clip-path="url(#btl2)"><rect class="btl-glass" width="40" height="120"/><rect class="btl-wine" y="72.2" width="40" height="47.8"/><rect class="btl-cap" width="40" height="15"/><rect class="btl-lab" x="9" y="72" width="22" height="24" rx="1"/></g><path class="btl-o" d="M16 2h8v24c0 5 10 9 10 19v70a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V45c0-10 10-14 10-19Z"/></svg>
-    <span class="btl-p" aria-hidden="true">7.</span><span class="btl-y" aria-hidden="true">13/14</span>
-    <span class="sr">2013/14, V. liga Západ: 7. miesto zo 16, 48 bodov, skóre 54:40</span>
-  </li><li class="btl">
-    <svg class="btl-s" viewBox="0 0 40 120" aria-hidden="true" focusable="false"><g clip-path="url(#btl2)"><rect class="btl-glass" width="40" height="120"/><rect class="btl-wine" y="52.9" width="40" height="67.1"/><rect class="btl-cap" width="40" height="15"/><rect class="btl-lab" x="9" y="72" width="22" height="24" rx="1"/></g><path class="btl-o" d="M16 2h8v24c0 5 10 9 10 19v70a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V45c0-10 10-14 10-19Z"/></svg>
-    <span class="btl-p" aria-hidden="true">3.</span><span class="btl-y" aria-hidden="true">14/15</span>
-    <span class="sr">2014/15, V. liga Stred: 3. miesto zo 16, 51 bodov, skóre 55:50, o bod za druhými Tovarníkmi</span>
-  </li><li class="btl">
-    <svg class="btl-s" viewBox="0 0 40 120" aria-hidden="true" focusable="false"><g clip-path="url(#btl2)"><rect class="btl-glass" width="40" height="120"/><rect class="btl-wine" y="96.5" width="40" height="23.5"/><rect class="btl-cap" width="40" height="15"/><rect class="btl-lab" x="9" y="72" width="22" height="24" rx="1"/></g><path class="btl-o" d="M16 2h8v24c0 5 10 9 10 19v70a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V45c0-10 10-14 10-19Z"/></svg>
-    <span class="btl-p" aria-hidden="true">12.</span><span class="btl-y" aria-hidden="true">15/16</span>
-    <span class="sr">2015/16, V. liga Stred: 12. miesto zo 16, 33 bodov, skóre 35:71</span>
-  </li><li class="btl">
-    <svg class="btl-s" viewBox="0 0 40 120" aria-hidden="true" focusable="false"><g clip-path="url(#btl2)"><rect class="btl-glass" width="40" height="120"/><rect class="btl-wine" y="96.5" width="40" height="23.5"/><rect class="btl-cap" width="40" height="15"/><rect class="btl-lab" x="9" y="72" width="22" height="24" rx="1"/></g><path class="btl-o" d="M16 2h8v24c0 5 10 9 10 19v70a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V45c0-10 10-14 10-19Z"/></svg>
-    <span class="btl-p" aria-hidden="true">12.</span><span class="btl-y" aria-hidden="true">16/17</span>
-    <span class="sr">2016/17, V. liga Stred: 12. miesto zo 16, 25 bodov, skóre 28:64</span>
-  </li><li class="btl btl--empty">
-    <svg class="btl-s" viewBox="0 0 40 120" aria-hidden="true" focusable="false"><g clip-path="url(#btl2)"><rect class="btl-glass" width="40" height="120"/><rect class="btl-wine" y="119.0" width="40" height="1.0"/><rect class="btl-cap" width="40" height="15"/><rect class="btl-lab" x="9" y="72" width="22" height="24" rx="1"/></g><path class="btl-o" d="M16 2h8v24c0 5 10 9 10 19v70a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V45c0-10 10-14 10-19Z"/></svg>
-    <span class="btl-p" aria-hidden="true">–</span><span class="btl-y" aria-hidden="true">17/18</span>
-    <span class="sr">2017/18, V. liga Stred: bez umiestnenia, áčko v súťaži neodohralo žiadny zápas</span>
-  </li><li class="btl">
-    <svg class="btl-s" viewBox="0 0 40 120" aria-hidden="true" focusable="false"><g clip-path="url(#btl2)"><rect class="btl-glass" width="40" height="120"/><rect class="btl-wine" y="49.2" width="40" height="70.8"/><rect class="btl-cap" width="40" height="15"/><rect class="btl-lab" x="9" y="72" width="22" height="24" rx="1"/></g><path class="btl-o" d="M16 2h8v24c0 5 10 9 10 19v70a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V45c0-10 10-14 10-19Z"/></svg>
-    <span class="btl-p" aria-hidden="true">2.</span><span class="btl-y" aria-hidden="true">18/19</span>
-    <span class="sr">2018/19, VII. liga ObFZ Topoľčany: 2. miesto z 13, 56 bodov, skóre 119:26, 119 gólov v 22 zápasoch</span>
-  </li><li class="btl">
-    <svg class="btl-s" viewBox="0 0 40 120" aria-hidden="true" focusable="false"><g clip-path="url(#btl2)"><rect class="btl-glass" width="40" height="120"/><rect class="btl-wine" y="57.7" width="40" height="62.3"/><rect class="btl-cap" width="40" height="15"/><rect class="btl-lab" x="9" y="72" width="22" height="24" rx="1"/></g><path class="btl-o" d="M16 2h8v24c0 5 10 9 10 19v70a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V45c0-10 10-14 10-19Z"/></svg>
-    <span class="btl-p" aria-hidden="true">4.</span><span class="btl-y" aria-hidden="true">19/20</span>
-    <span class="sr">2019/20, VI. liga ObFZ Topoľčany: 4. miesto zo 16, 28 bodov, skóre 48:24, nedohraná sezóna (pandémia)</span>
-  </li><li class="btl">
-    <svg class="btl-s" viewBox="0 0 40 120" aria-hidden="true" focusable="false"><g clip-path="url(#btl2)"><rect class="btl-glass" width="40" height="120"/><rect class="btl-wine" y="72.2" width="40" height="47.8"/><rect class="btl-cap" width="40" height="15"/><rect class="btl-lab" x="9" y="72" width="22" height="24" rx="1"/></g><path class="btl-o" d="M16 2h8v24c0 5 10 9 10 19v70a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V45c0-10 10-14 10-19Z"/></svg>
-    <span class="btl-p" aria-hidden="true">7.</span><span class="btl-y" aria-hidden="true">20/21</span>
-    <span class="sr">2020/21, VI. liga ObFZ Topoľčany: 7. miesto zo 16, 15 bodov, skóre 29:12, nedohraná sezóna (pandémia)</span>
-  </li><li class="btl">
-    <svg class="btl-s" viewBox="0 0 40 120" aria-hidden="true" focusable="false"><g clip-path="url(#btl2)"><rect class="btl-glass" width="40" height="120"/><rect class="btl-wine" y="65.5" width="40" height="54.5"/><rect class="btl-cap" width="40" height="15"/><rect class="btl-lab" x="9" y="72" width="22" height="24" rx="1"/></g><path class="btl-o" d="M16 2h8v24c0 5 10 9 10 19v70a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V45c0-10 10-14 10-19Z"/></svg>
-    <span class="btl-p" aria-hidden="true">5.</span><span class="btl-y" aria-hidden="true">21/22</span>
-    <span class="sr">2021/22, VI. liga ObFZ Topoľčany: 5. miesto zo 14, 46 bodov, skóre 69:40</span>
-  </li><li class="btl">
-    <svg class="btl-s" viewBox="0 0 40 120" aria-hidden="true" focusable="false"><g clip-path="url(#btl2)"><rect class="btl-glass" width="40" height="120"/><rect class="btl-wine" y="48.8" width="40" height="71.2"/><rect class="btl-cap" width="40" height="15"/><rect class="btl-lab" x="9" y="72" width="22" height="24" rx="1"/></g><path class="btl-o" d="M16 2h8v24c0 5 10 9 10 19v70a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V45c0-10 10-14 10-19Z"/></svg>
-    <span class="btl-p" aria-hidden="true">2.</span><span class="btl-y" aria-hidden="true">22/23</span>
-    <span class="sr">2022/23, VII. liga ObFZ Topoľčany: 2. miesto zo 14, 56 bodov, skóre 101:32</span>
-  </li><li class="btl">
-    <svg class="btl-s" viewBox="0 0 40 120" aria-hidden="true" focusable="false"><g clip-path="url(#btl2)"><rect class="btl-glass" width="40" height="120"/><rect class="btl-wine" y="54.3" width="40" height="65.7"/><rect class="btl-cap" width="40" height="15"/><rect class="btl-lab" x="9" y="72" width="22" height="24" rx="1"/></g><path class="btl-o" d="M16 2h8v24c0 5 10 9 10 19v70a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V45c0-10 10-14 10-19Z"/></svg>
-    <span class="btl-p" aria-hidden="true">3.</span><span class="btl-y" aria-hidden="true">23/24</span>
-    <span class="sr">2023/24, VII. liga ObFZ Topoľčany: 3. miesto zo 14, 59 bodov, skóre 89:30</span>
-  </li><li class="btl btl--gold">
-    <svg class="btl-s" viewBox="0 0 40 120" aria-hidden="true" focusable="false"><g clip-path="url(#btl2)"><rect class="btl-glass" width="40" height="120"/><rect class="btl-wine" y="43.2" width="40" height="76.8"/><rect class="btl-cap" width="40" height="15"/><rect class="btl-lab" x="9" y="72" width="22" height="24" rx="1"/></g><path class="btl-o" d="M16 2h8v24c0 5 10 9 10 19v70a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V45c0-10 10-14 10-19Z"/></svg>
-    <span class="btl-p" aria-hidden="true">1.</span><span class="btl-y" aria-hidden="true">24/25</span>
-    <span class="sr">2024/25, VII. liga ObFZ Topoľčany: 1. miesto zo 14, 54 bodov, skóre 68:27, majster okresu, o bod pred Čermanmi, postup do VI. ligy</span>
-  </li><li class="btl">
-    <svg class="btl-s" viewBox="0 0 40 120" aria-hidden="true" focusable="false"><g clip-path="url(#btl2)"><rect class="btl-glass" width="40" height="120"/><rect class="btl-wine" y="91.6" width="40" height="28.4"/><rect class="btl-cap" width="40" height="15"/><rect class="btl-lab" x="9" y="72" width="22" height="24" rx="1"/></g><path class="btl-o" d="M16 2h8v24c0 5 10 9 10 19v70a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V45c0-10 10-14 10-19Z"/></svg>
-    <span class="btl-p" aria-hidden="true">11.</span><span class="btl-y" aria-hidden="true">25/26</span>
-    <span class="sr">2025/26, VI. liga Severovýchod: 11. miesto zo 16, 38 bodov, skóre 44:64, prvý ročník po postupe</span>
-  </li><li class="btl btl--now">
-    <svg class="btl-s" viewBox="0 0 40 120" aria-hidden="true" focusable="false"><g clip-path="url(#btl2)"><rect class="btl-glass" width="40" height="120"/><rect class="btl-wine" y="101.3" width="40" height="18.7"/><rect class="btl-cap" width="40" height="15"/><rect class="btl-lab" x="9" y="72" width="22" height="24" rx="1"/></g><path class="btl-o" d="M16 2h8v24c0 5 10 9 10 19v70a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4V45c0-10 10-14 10-19Z"/></svg>
-    <span class="btl-p" aria-hidden="true">13.</span><span class="btl-y" aria-hidden="true">26/27</span>
-    <span class="sr">2026/27, VI. liga Severovýchod: 13. miesto zo 16, po jeseni</span>
-  </li></ol></div>
-  <div class="tbl-wrap tbl-wrap--inv"><table class="tbl tbl--roc"><caption class="sr">Ročníky áčka od 2013/14</caption>
-    <thead><tr><th scope="col" class="tl">Ročník</th><th scope="col" class="tl">Súťaž</th><th scope="col">Miesto</th><th scope="col" class="hm">Skóre</th><th scope="col">Body</th></tr></thead>
-    <tbody><tr><th scope="row" class="tl">2013/14</th><td class="tl">V. liga Západ</td><td class="nw">7. zo 16</td><td class="hm nw">54:40</td><td>48</td></tr><tr><th scope="row" class="tl">2014/15</th><td class="tl">V. liga Stred<small>o bod za druhými Tovarníkmi</small></td><td class="nw">3. zo 16</td><td class="hm nw">55:50</td><td>51</td></tr><tr><th scope="row" class="tl">2015/16</th><td class="tl">V. liga Stred</td><td class="nw">12. zo 16</td><td class="hm nw">35:71</td><td>33</td></tr><tr><th scope="row" class="tl">2016/17</th><td class="tl">V. liga Stred</td><td class="nw">12. zo 16</td><td class="hm nw">28:64</td><td>25</td></tr><tr><th scope="row" class="tl">2017/18</th><td class="tl">V. liga Stred<small>áčko v súťaži neodohralo žiadny zápas</small></td><td class="nw">–</td><td class="hm nw">–</td><td>–</td></tr><tr><th scope="row" class="tl">2018/19</th><td class="tl">VII. liga ObFZ Topoľčany<small>119 gólov v 22 zápasoch</small></td><td class="nw">2. z 13</td><td class="hm nw">119:26</td><td>56</td></tr><tr><th scope="row" class="tl">2019/20</th><td class="tl">VI. liga ObFZ Topoľčany<small>nedohraná sezóna (pandémia)</small></td><td class="nw">4. zo 16</td><td class="hm nw">48:24</td><td>28</td></tr><tr><th scope="row" class="tl">2020/21</th><td class="tl">VI. liga ObFZ Topoľčany<small>nedohraná sezóna (pandémia)</small></td><td class="nw">7. zo 16</td><td class="hm nw">29:12</td><td>15</td></tr><tr><th scope="row" class="tl">2021/22</th><td class="tl">VI. liga ObFZ Topoľčany</td><td class="nw">5. zo 14</td><td class="hm nw">69:40</td><td>46</td></tr><tr><th scope="row" class="tl">2022/23</th><td class="tl">VII. liga ObFZ Topoľčany</td><td class="nw">2. zo 14</td><td class="hm nw">101:32</td><td>56</td></tr><tr><th scope="row" class="tl">2023/24</th><td class="tl">VII. liga ObFZ Topoľčany</td><td class="nw">3. zo 14</td><td class="hm nw">89:30</td><td>59</td></tr><tr class="our"><th scope="row" class="tl">2024/25</th><td class="tl">VII. liga ObFZ Topoľčany<small>majster okresu, o bod pred Čermanmi, postup do VI. ligy</small></td><td class="nw">1. zo 14</td><td class="hm nw">68:27</td><td>54</td></tr><tr><th scope="row" class="tl">2025/26</th><td class="tl">VI. liga Severovýchod<small>prvý ročník po postupe</small></td><td class="nw">11. zo 16</td><td class="hm nw">44:64</td><td>38</td></tr></tbody>
-  </table></div>
-  <p class="src src--inv">Zdroj: konečné tabuľky zo Sportnetu.</p>
-</div></section>
-<section class="sec" id="obec" aria-labelledby="ob2-h"><div class="wrap">
-  <div class="sec-head"><div><p class="eyebrow">Pod Považským Inovcom</p><h2 class="h2" id="ob2-h">Obec Radošina</h2></div></div>
-  <ol class="facts5"><li><p class="f5-k">80 000 rokov</p><p>Jaskyňa Čertova pec nad obcou bola osídlená už v strednom paleolite. Od roku 1981 je chráneným prírodným výtvorom.</p></li><li><p class="f5-k">1249</p><p>Názov obce pochádza pravdepodobne od potoka, ktorý listina nitrianskeho archidiakona Vincenta spomína ako Radusna.</p></li><li><p class="f5-k">16. storočie</p><p>Radošina sa spomína ako mestečko (oppidum). Kaštieľ v strede obce slúžil ako letné sídlo nitrianskych biskupov.</p></li><li><p class="f5-k">25. 12. 1963</p><p>Radošinský rodák Stanislav Štepka tu založil Radošinské naivné divadlo, ktoré neskôr presídlilo do Bratislavy.</p></li><li><p class="f5-k">Víno</p><p>Biskupský majer mal v 18. storočí vínny sklep na 500 urien vína. Meno Radošinský Klevner dnes nesie cuvée z miestnej pivnice.</p></li></ol>
-  <p class="src">Zdroj: web obce Radošina (Dejiny obce, Kultúrne pamiatky), TASR a Rok divadla (Radošinské naivné divadlo), Visit Bratislava a Wikipédia (víno). Správy z klubu vychádzajú v <a href="https://www.radosina.sk/radosinske-noviny.html" rel="noopener">Radošinských novinách</a>.</p>
-</div></section>
+<article class="col col--page">
+  <header class="col-head">
+    <nav class="crumbs" aria-label="Omrvinky"><a href="../">Úvod</a><span aria-current="page">Klub</span></nav>
+    <p class="kicker">Telovýchovná jednota – Športový klub Radošina</p>
+    <h1 class="h1">Titul je náš!</h1>
+    <p class="col-lead">Ročník 2024/25 podľa trénera áčka v Radošinských novinách.</p>
+  </header>
+  <p>Do ročníka 2024/25 vstupovala Radošina s jasným cieľom vyhrať súťaž. Prvé štyri kolá vyhrala, jedinú jesennú prehru utrpela v Čermanoch a s jedenástimi výhrami, remízou a prehrou prezimovala na prvom mieste.</p><p>Na jar prišli zranenia, slabšia účasť na tréningoch a disciplinárny trest – odpočítanie troch bodov. Pred posledným kolom už titul vyzeral stratený. Čermany však doma posledný krok nezvládli, a keď v Radošine rozhodca odpískal koniec zápasu, prišla správa o ich zaváhaní.</p><p>Radošina vyhrala VII. ligu ObFZ Topoľčany o jediný bod, 54 bodov pred 53 bodmi Čerman, a od ročníka 2025/26 hrá VI. ligu Severovýchod Západoslovenského futbalového zväzu.</p>
+  <blockquote class="pull"><p>„Chlapci bojovali až do posledného kola. A stal sa malý športový zázrak.“</p><footer>tréner áčka v Radošinských novinách</footer></blockquote>
+  <h2 class="h2">História</h2>
+  <ol class="hist"><li><b>1933</b> Rok založenia futbalu v Radošine uvádza erb klubu.</li><li><b>2014/15</b> Áčko končí v V. lige Stred tretie, o bod za druhými Tovarníkmi.</li><li><b>2018/19</b> Po návrate do okresnej VII. ligy strelí áčko 119 gólov v 22 zápasoch a skončí druhé.</li><li><b>2023</b> Pod trénerom Petrom Čierňavom začínajú trénovať najmenšie deti, prvý tréning bol 30. septembra na štadióne. Klubová budova dostala nové okná a tréningová plocha osvetlenie.</li><li><b>2024/25</b> Titul v VII. lige ObFZ Topoľčany o bod pred Čermanmi napriek odpočítaným trom bodom a postup do VI. ligy.</li><li><b>2025</b> Po desiatich rokoch sa vracia dorast, hrá IV. ligu U19 Západoslovenského zväzu. Na ihrisku pribudol závlahový systém.</li><li><b>2025</b> Vianočný futbalový turnaj 20. decembra na štadióne: štyri tímy, finále Káčerovské – Fratelli rozhodli až penalty, vyhralo Káčerovské.</li></ol>
+  <h2 class="h2">Ročníky áčka</h2>
+  <div class="tbl-wrap"><table class="tbl tbl--roc"><caption class="sr">Ročníky áčka</caption>
+  <thead><tr><th scope="col" class="tl">Ročník</th><th scope="col" class="tl">Súťaž</th><th scope="col">Miesto</th><th scope="col" class="hm">Skóre</th><th scope="col">Body</th></tr></thead>
+  <tbody><tr><th scope="row" class="tl">2013/14</th><td class="tl">V. liga Západ</td><td class="nw">7.<span> zo 16</span></td><td class="hm nw">54:40</td><td>48</td></tr><tr><th scope="row" class="tl">2014/15</th><td class="tl">V. liga Stred<small>o bod za druhými Tovarníkmi</small></td><td class="nw">3.<span> zo 16</span></td><td class="hm nw">55:50</td><td>51</td></tr><tr><th scope="row" class="tl">2015/16</th><td class="tl">V. liga Stred</td><td class="nw">12.<span> zo 16</span></td><td class="hm nw">35:71</td><td>33</td></tr><tr><th scope="row" class="tl">2016/17</th><td class="tl">V. liga Stred</td><td class="nw">12.<span> zo 16</span></td><td class="hm nw">28:64</td><td>25</td></tr><tr><th scope="row" class="tl">2017/18</th><td class="tl">V. liga Stred<small>áčko v súťaži neodohralo žiadny zápas</small></td><td class="nw">–</td><td class="hm nw"></td><td></td></tr><tr><th scope="row" class="tl">2018/19</th><td class="tl">VII. liga ObFZ Topoľčany<small>119 gólov v 22 zápasoch</small></td><td class="nw">2.<span> z 13</span></td><td class="hm nw">119:26</td><td>56</td></tr><tr><th scope="row" class="tl">2019/20</th><td class="tl">VI. liga ObFZ Topoľčany<small>nedohraná sezóna (pandémia)</small></td><td class="nw">4.<span> zo 16</span></td><td class="hm nw">48:24</td><td>28</td></tr><tr><th scope="row" class="tl">2020/21</th><td class="tl">VI. liga ObFZ Topoľčany<small>nedohraná sezóna (pandémia)</small></td><td class="nw">7.<span> zo 16</span></td><td class="hm nw">29:12</td><td>15</td></tr><tr><th scope="row" class="tl">2021/22</th><td class="tl">VI. liga ObFZ Topoľčany</td><td class="nw">5.<span> zo 14</span></td><td class="hm nw">69:40</td><td>46</td></tr><tr><th scope="row" class="tl">2022/23</th><td class="tl">VII. liga ObFZ Topoľčany</td><td class="nw">2.<span> zo 14</span></td><td class="hm nw">101:32</td><td>56</td></tr><tr><th scope="row" class="tl">2023/24</th><td class="tl">VII. liga ObFZ Topoľčany</td><td class="nw">3.<span> zo 14</span></td><td class="hm nw">89:30</td><td>59</td></tr><tr><th scope="row" class="tl">2024/25</th><td class="tl">VII. liga ObFZ Topoľčany<small>majster okresu, o bod pred Čermanmi, postup do VI. ligy</small></td><td class="nw">1.<span> zo 14</span></td><td class="hm nw">68:27</td><td>54</td></tr><tr><th scope="row" class="tl">2025/26</th><td class="tl">VI. liga Severovýchod<small>prvý ročník po postupe</small></td><td class="nw">11.<span> zo 16</span></td><td class="hm nw">44:64</td><td>38</td></tr></tbody>
+</table></div>
+  <h2 class="h2">Futbalový štadión Radošina</h2>
+  <ol class="hist"><li><b>2023</b> V lete nové okná v klubovej budove (z demontovaných okien obecného úradu), opravené zábradlie okolo hracej plochy a dobudované osvetlenie tréningovej plochy.</li><li><b>2025</b> Na ihrisku sa dokončuje závlahový systém, aby bol trávnik v dobrej kondícii celú sezónu.</li><li><b>2025</b> Priaznivci futbalu postavili oplotenie okolo novej oddychovej zóny za multifunkčným ihriskom.</li></ol>
+  <h2 class="h2">Radošina</h2>
+  <dl class="kv"><div><dt>80 000 rokov</dt><dd>Jaskyňa Čertova pec nad obcou bola osídlená už v strednom paleolite. Od roku 1981 je chráneným prírodným výtvorom.</dd></div><div><dt>1249</dt><dd>Názov obce pochádza pravdepodobne od potoka, ktorý listina nitrianskeho archidiakona Vincenta spomína ako Radusna.</dd></div><div><dt>16. storočie</dt><dd>Radošina sa spomína ako mestečko (oppidum). Kaštieľ v strede obce slúžil ako letné sídlo nitrianskych biskupov.</dd></div><div><dt>25. 12. 1963</dt><dd>Radošinský rodák Stanislav Štepka tu založil Radošinské naivné divadlo, ktoré neskôr presídlilo do Bratislavy.</dd></div><div><dt>Víno</dt><dd>Biskupský majer mal v 18. storočí vínny sklep na 500 urien vína. Meno Radošinský Klevner dnes nesie cuvée z miestnej pivnice.</dd></div></dl>
+  <p class="note">Zdroje: Radošinské noviny, web obce Radošina, Sportnet, TASR, Wikipédia.</p>
+</article>
 </main>
-<footer class="ftr">
-  <div class="wrap ftr-grid">
-    <div class="ftr-club">
-      <img src="../img/erb-240.webp" alt="" width="72" height="80" loading="lazy">
-      <p class="ftr-cry">Pome ŠK!</p>
-      <p class="ftr-motto">TJ-ŠK Radošina, futbal v Radošine od roku 1933.</p>
-    </div>
-    <div><h2 class="ftr-h">Ihrisko</h2><p>Futbalový štadión Radošina<br>Nádražná, 956 05 Radošina</p><p><a href="https://www.google.com/maps/search/?api=1&query=48.5461459,17.9406413" rel="noopener">Navigovať na ihrisko</a></p><p>Najbližšie doma: <a href="../zapasy/2027-03-06-a-tj-slovan-preselany/">6. 3. o 14:30 proti TJ Slovan Preseľany</a></p></div>
-    <div><h2 class="ftr-h">Kontakt</h2><p>Telovýchovná jednota – Športový klub Radošina<br><a href="mailto:tjskradosinaissf@gmail.com">tjskradosinaissf<wbr>@gmail.com</a></p></div>
-    <div><h2 class="ftr-h">Zdroje</h2><p>Výsledky zo Sportnetu (Futbalnet), aktualizované 17. 11. 2026. Správy z klubu a obce podľa Radošinských novín.</p><p><a href="https://sportnet.sme.sk/futbalnet/k/tj-sk-radosina/" rel="noopener">Klub na Sportnete</a></p></div>
-  </div>
-  <div class="ftr-bar"><div class="wrap ftr-bar-in"><span>© 2026 Telovýchovná jednota – Športový klub Radošina</span><a href="../ochrana-sukromia/">Ochrana súkromia</a><a href="../admin/">Administrácia (ukážka)</a></div></div>
-</footer>
+<footer class="ftr"><div class="wrap ftr-in">
+  <div class="ftr-id"><img src="../img/erb-128.webp" alt="" width="43" height="48" loading="lazy"><div><p class="ftr-name">TJ-ŠK Radošina</p><p>Futbalový štadión Radošina, Nádražná, 956 05 Radošina</p></div></div>
+  <ul class="ftr-links"><li><a href="https://www.google.com/maps/search/?api=1&query=48.5461459,17.9406413" rel="noopener">Navigovať na ihrisko</a></li><li><a href="mailto:tjskradosinaissf@gmail.com">tjskradosinaissf<wbr>@gmail.com</a></li><li><a href="https://sportnet.sme.sk/futbalnet/k/tj-sk-radosina/" rel="noopener">Sportnet</a></li></ul>
+  <p class="ftr-src">Výsledky zo Sportnetu, aktualizované 17. 11. 2026. Príbeh titulu a správy z klubu podľa Radošinských novín, obec podľa webu obce.</p>
+</div><div class="wrap ftr-bar"><span>© 2026 Telovýchovná jednota – Športový klub Radošina</span><a href="../ochrana-sukromia/">Ochrana súkromia</a><a href="../admin/">Administrácia (ukážka)</a></div></footer>
 </body>
 </html>

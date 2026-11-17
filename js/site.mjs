@@ -1,28 +1,20 @@
-// Správanie webu TJ-ŠK Radošina (bez knižníc): menu ako visačka, filtre zápasov, odpočet, kalendár.
+// Správanie klubového webu (bez knižníc): menu v dialógu, filtre zápasov, odpočet do výkopu, kalendár.
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
-// ---- menu na telefóne: modálny <dialog> ako visačka pod tlačidlom (Esc a „Zavrieť“ ho zatvoria, fokus sa vráti na tlačidlo) ----
+// ---- menu na telefóne: modálny <dialog> cez celú obrazovku (Esc, „Zavrieť“ a klik na odkaz ho zatvoria, fokus sa vráti na tlačidlo) ----
 const menuBtn = $('.menu-btn'), menu = $('#menu');
 if (menuBtn && menu && typeof menu.showModal === 'function') {
   const close = () => { if (menu.open) menu.close(); };
-  menuBtn.addEventListener('click', () => {
-    // hlavička nie je prilepená: pri mierne posunutej stránke posunúť visačku hore, aby šnúrka visela pod tlačidlom
-    // (CSSOM, nie atribút style, takže to CSP pustí)
-    const shift = Math.max(0, Math.min(scrollY, parseFloat(getComputedStyle(menu).paddingTop) - 12));
-    menu.style.translate = shift ? `0 ${-shift}px` : '';
-    menu.showModal(); document.documentElement.classList.add('menu-open');
-  });
-  menu.addEventListener('close', () => { document.documentElement.classList.remove('menu-open'); menuBtn.focus(); });
+  menuBtn.addEventListener('click', () => { menu.showModal(); menuBtn.setAttribute('aria-expanded', 'true'); document.documentElement.classList.add('menu-open'); });
+  menu.addEventListener('close', () => { menuBtn.setAttribute('aria-expanded', 'false'); document.documentElement.classList.remove('menu-open'); menuBtn.focus(); });
   $('[data-close]', menu).addEventListener('click', close);
-  // klik na odkaz alebo na stmavené pozadie pod panelom (cieľ je vtedy samotný <dialog>, mimo jeho obdĺžnika)
+  // klik na odkaz alebo mimo panelu (cieľom je samotný <dialog>) menu zavrie
   menu.addEventListener('click', (e) => {
     if (e.target.closest('a')) return close();
-    if (e.target !== menu) return;
-    const r = menu.getBoundingClientRect();
-    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) close();
+    if (e.target === menu) close();
   });
-  matchMedia('(min-width: 960px)').addEventListener('change', (e) => { if (e.matches) close(); });
+  matchMedia('(min-width: 1000px)').addEventListener('change', (e) => { if (e.matches) close(); }); // od 1000 px je menu v hlavičke (site.css)
 }
 
 // ---- odpočet do výkopu ----
