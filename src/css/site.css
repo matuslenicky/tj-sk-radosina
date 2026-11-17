@@ -1,0 +1,599 @@
+/* TJ-ŠK Radošina – „Ročníky“. Na erbe klubu je vinohradnícky nôž a strapec hrozna, Radošina je vinárska obec.
+   Úvod ako vinárska etiketa (krémový papier, dvojitý rám, vykrojené rohy), ligové zápasy áčka ako bobule strapca,
+   ročníky ako fľaše na polici (hladina vína = umiestnenie), program ako visačky na hrdlách fliaš, výsledky ako dná
+   fliaš v pivnici, riadky vinohradu ako jemné šikmé linky, menu na telefóne ako visačka. Farby z erbu: tmavomodrá
+   a svetlomodrá, k nim krémová etiketa, slamová farba vína a vínová pre prehry. Písmo Cormorant (pätkové, etiketa) a Jost. */
+:root {
+  --navy: #0d2140;
+  --navy-2: #17305a;
+  --navy-d: #081631;
+  --sky: #c4d8f4;
+  --sky-2: #8fb0dd;
+  --sky-l: #e8f0fb;
+  --cream: #f6f0e1;
+  --cream-2: #efe6d0;
+  --paper: #fffdf7;
+  --bg: #fbf8f0;
+  --ink: #15203a;
+  --muted: #565e70;
+  --line: #ddd3bd;
+  --straw: #e3cd8a;
+  --gold: #c9a24f;
+  --wine: #7e2338;
+  --win: #0d2140;
+  --draw: #4f6f9f;
+  --loss: #7e2338;
+  --serif: 'Cormorant', Georgia, 'Times New Roman', serif;
+  --sans: 'Jost', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --rows: repeating-linear-gradient(-58deg, transparent 0 13px, rgba(13, 33, 64, .07) 13px 14px);
+  --rows-inv: repeating-linear-gradient(-58deg, transparent 0 13px, rgba(196, 216, 244, .07) 13px 14px);
+  --wrap: 1180px;
+  --gut: 16px;
+  color-scheme: light;
+}
+@media (min-width: 700px) { :root { --gut: 24px; } }
+@media (min-width: 1100px) { :root { --gut: 32px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; scroll-padding-top: 20px; }
+html.menu-open { overflow: hidden; }
+body { margin: 0; overflow-x: clip; background: var(--bg); color: var(--ink); font: 400 1.0625rem/1.6 var(--sans); font-kerning: normal; } /* rovné číslice Cormorant sú zapečené v písme (scripts/fonts.py) */
+img { max-width: 100%; height: auto; display: block; }
+figure { margin: 0; }
+a { color: var(--navy); text-underline-offset: .18em; text-decoration-thickness: 1px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 3px solid var(--wine); outline-offset: 2px; }
+h1, h2, h3, h4 { margin: 0; }
+p { margin: 0 0 1em; }
+abbr[title] { text-decoration: none; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.wrap { width: 100%; max-width: calc(var(--wrap) + 2 * var(--gut)); margin: 0 auto; padding: 0 var(--gut); }
+.nw { white-space: nowrap; }
+[hidden] { display: none !important; }
+.i { width: 1.15em; height: 1.15em; flex: none; }
+.skip { position: absolute; left: 8px; top: -60px; z-index: 100; background: var(--navy); color: #fff; padding: 10px 16px; font-weight: 600; }
+.skip:focus { top: 8px; }
+
+/* ---- typografia: pätkové nadpisy ako na etikete, drobné verzálky s preloženým písmom ---- */
+.h1, .h2, .label-h, .ccard-n, .brand-n, .ftr-cry, .cry { font-family: var(--serif); font-weight: 700; letter-spacing: -.005em; }
+.h1 { font-size: clamp(2.3rem, 7vw, 4.2rem); line-height: 1; color: var(--navy); }
+.h2 { font-size: clamp(2rem, 4.6vw, 3.1rem); line-height: 1.02; color: var(--navy); }
+.h2--it { font-style: italic; font-weight: 600; }
+.h3 { font: 700 1.6rem/1.15 var(--serif); color: var(--navy); margin-bottom: 14px; }
+.h3 small { display: block; margin-top: 2px; font: 500 .75rem/1.3 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.h4 { font: 600 1rem/1.3 var(--sans); }
+.eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 8px; font: 500 .8125rem/1.3 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--wine); }
+.eyebrow::before { content: ''; width: 22px; height: 1px; background: currentColor; }
+.lead { max-width: 62ch; font-size: 1.125rem; }
+.h2 + .lead, .sec-head + .lead { margin-top: -6px; }
+.src, .note { font-size: .875rem; color: var(--muted); }
+.note { max-width: 66ch; }
+.src--inv { color: rgba(255, 255, 255, .8); }
+.src--inv a { color: #fff; }
+
+/* ---- tlačidlá ---- */
+.btn { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 10px 22px; border: 1.5px solid transparent; border-radius: 999px; font: 500 .9375rem/1.1 var(--sans); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; cursor: pointer; }
+.btn .i { width: 18px; height: 18px; }
+.btn--navy { background: var(--navy); color: #fff; }
+.btn--navy:hover { background: var(--navy-2); }
+.btn--sky { background: var(--sky); color: var(--navy); }
+.btn--sky:hover { background: #fff; }
+.btn--line { border-color: var(--navy); color: var(--navy); background: transparent; }
+.btn--line:hover { background: var(--navy); color: #fff; }
+.btn--ghost { border-color: rgba(196, 216, 244, .8); color: #fff; }
+.btn--ghost:hover { background: var(--sky); color: var(--navy); }
+.btns { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 1em; }
+.btns .btn { max-width: 100%; overflow-wrap: anywhere; }
+.btns .btn[href^="mailto"] span { text-transform: none; letter-spacing: .02em; }
+.more { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 10px 0; font: 500 .875rem/1.2 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--navy); white-space: nowrap; text-decoration: none; border-bottom: 1px solid transparent; }
+.more:hover { text-decoration: underline; }
+.more .i { width: 17px; height: 17px; transition: transform .15s; }
+.more:hover .i { transform: translateX(3px); }
+.sec--navy .more { color: var(--sky); }
+
+/* ---- hlavička: krémový papier s dvojitou linkou ako okraj etikety ---- */
+.demo { margin: 0; padding: 6px 12px; background: var(--navy-d); color: #fff; font-size: .8125rem; font-weight: 500; text-align: center; line-height: 1.25; letter-spacing: .02em; }
+.hdr { position: relative; background: var(--paper); border-bottom: 4px double var(--navy); }
+.hdr-in { display: flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 72px; }
+.brand { display: flex; align-items: center; gap: 12px; padding: 6px 0; color: var(--navy); text-decoration: none; min-width: 0; }
+.brand img { width: 42px; height: 47px; flex: none; }
+.brand-t { display: flex; flex-direction: column; line-height: 1; min-width: 0; }
+.brand-n { font-size: 1.6rem; }
+.brand-s { margin-top: 4px; white-space: nowrap; font: 500 .75rem/1.2 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.menu-btn { flex: none; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 18px 0 14px; border: 1.5px solid var(--navy); border-radius: 999px; background: transparent; color: var(--navy); font: 500 .875rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; cursor: pointer; }
+.menu-btn:hover { background: var(--navy); color: #fff; }
+.nav { display: none; }
+.nav ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; }
+.nav li + li::before { content: ''; display: inline-block; width: 4px; height: 4px; margin: 0 2px; border-radius: 50%; background: var(--sky-2); vertical-align: middle; }
+.nav a { display: inline-flex; align-items: center; min-height: 72px; padding: 0 10px; color: var(--navy); text-decoration: none; font: 500 .875rem/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; }
+.nav a:hover { text-decoration: underline; text-underline-offset: 6px; }
+.nav a[aria-current="page"] { color: var(--wine); text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 2px; }
+html:not(.js) .nav { display: block; overflow-x: auto; }
+html:not(.js) .menu-btn { display: none; }
+@media (max-width: 479.98px) { .brand-x { display: none; } }
+@media (max-width: 379.98px) { .brand-n { font-size: 1.4rem; } .brand { gap: 10px; } .brand img { width: 36px; height: 40px; } .menu-btn { padding: 0 14px 0 12px; } }
+@media (min-width: 960px) { .nav { display: block; } .menu-btn { display: none; } .brand-n { font-size: 1.85rem; } }
+@media (min-width: 960px) and (max-width: 1119.98px) { .nav a { padding: 0 7px; letter-spacing: .1em; } }
+
+/* menu na telefóne: visačka zavesená na šnúrke pod tlačidlom */
+.menu { position: fixed; inset: 0 var(--gut) auto auto; margin: 0; padding: 66px 0 0; width: min(330px, calc(100vw - 2 * var(--gut))); max-height: 100dvh; border: 0; background: transparent; color: #fff; overflow: visible; }
+.has-demo .menu { padding-top: 94px; }
+.menu::backdrop { background: rgba(8, 22, 49, .5); }
+.htag { position: relative; padding: 36px 20px 18px; background: var(--navy); clip-path: polygon(28px 0, calc(100% - 28px) 0, 100% 28px, 100% 100%, 0 100%, 0 28px); max-height: calc(100dvh - 110px); overflow-y: auto; transform-origin: 50% 0; }
+.htag::before { content: ''; position: absolute; right: 46px; top: 12px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); box-shadow: inset 0 0 0 3px var(--sky-2); }
+.menu::before { content: ''; position: absolute; right: 52px; top: 56px; width: 2px; height: 26px; background: var(--sky-2); }
+.has-demo .menu::before { top: 84px; }
+.htag-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(196, 216, 244, .3); }
+.htag-k { font: 500 .75rem/1.2 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--sky); }
+.menu-x { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 14px 0 10px; border: 1.5px solid rgba(196, 216, 244, .7); border-radius: 999px; background: transparent; color: #fff; font: 500 .8125rem/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; cursor: pointer; }
+.htag-nav { list-style: none; margin: 6px 0 0; padding: 0; counter-reset: n; }
+.htag-nav a { display: flex; align-items: baseline; gap: 12px; min-height: 48px; padding: 8px 0; color: #fff; text-decoration: none; font: 600 1.6rem/1.15 var(--serif); border-bottom: 1px solid rgba(196, 216, 244, .14); }
+.htag-nav a::before { counter-increment: n; content: counter(n, decimal-leading-zero); min-width: 22px; font: 500 .75rem/1 var(--sans); letter-spacing: .1em; color: var(--sky-2); }
+.htag-nav a[aria-current="page"] { color: var(--sky); font-style: italic; }
+.htag-foot { margin: 14px 0 0; font: italic 600 1.5rem/1 var(--serif); color: var(--straw); text-align: center; }
+.menu :focus-visible { outline-color: #fff; }
+@media (prefers-reduced-motion: no-preference) { .menu[open] .htag { animation: swing .5s cubic-bezier(.3, 1.4, .5, 1); } @keyframes swing { from { transform: rotate(-7deg); opacity: 0; } 40% { opacity: 1; } } }
+
+/* ---- sekcie ---- */
+.sec { padding: 54px 0; }
+.sec--first { padding-top: 34px; }
+.sec--cream { background: var(--cream); }
+.sec--navy { background: var(--rows-inv), var(--navy); color: #fff; }
+.sec--navy .h2, .sec--navy .h3 { color: #fff; }
+.sec--navy .eyebrow { color: var(--sky); }
+.sec--navy .lead { color: rgba(255, 255, 255, .9); }
+.sec--navy :focus-visible { outline-color: #fff; }
+@media (min-width: 700px) { .sec { padding: 78px 0; } .sec--first { padding-top: 46px; } }
+.sec-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 4px 20px; flex-wrap: wrap; margin-bottom: 24px; }
+.cols2 { display: grid; gap: 40px; }
+.cols2 > * { min-width: 0; }
+@media (min-width: 900px) { .cols2 { grid-template-columns: 1fr 1fr; gap: 52px; } }
+
+/* ---- hlavička podstránok: krémový pás, vpravo riadky vinohradu ---- */
+.phead { position: relative; background: var(--cream); border-bottom: 4px double var(--navy); overflow: hidden; }
+.phead::after { content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: min(42%, 460px); background: var(--rows); -webkit-mask: linear-gradient(90deg, transparent, #000 60%); mask: linear-gradient(90deg, transparent, #000 60%); pointer-events: none; }
+.phead-in { position: relative; z-index: 1; padding-top: 30px; padding-bottom: 26px; }
+.phead .h1 { max-width: 22ch; overflow-wrap: anywhere; }
+.phead-sub { margin: 12px 0 0; max-width: 62ch; color: var(--muted); }
+.phead-sub b { color: var(--navy); }
+.crumbs { display: flex; flex-wrap: wrap; gap: 4px 0; margin-bottom: 12px; font: 500 .8125rem/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; }
+.crumbs a { color: var(--navy); }
+.crumbs span { color: var(--muted); }
+.crumbs > * + *::before { content: '·'; display: inline-block; margin: 0 10px; color: var(--sky-2); }
+@media (min-width: 700px) { .phead-in { padding-top: 46px; padding-bottom: 36px; } }
+
+/* ---- úvod: vinárska etiketa na tmavomodrom vinohrade a strapec ročníka ---- */
+.hero { background: var(--rows-inv), radial-gradient(120% 90% at 85% 0%, var(--navy-2), var(--navy) 60%, var(--navy-d)); color: #fff; }
+.hero-in { display: grid; gap: 30px; padding-top: 28px; padding-bottom: 44px; }
+.hero-in > * { min-width: 0; }
+@media (min-width: 900px) { .hero-in { grid-template-columns: minmax(0, 470px) minmax(0, 1fr); gap: 56px; align-items: center; padding-top: 52px; padding-bottom: 64px; } }
+/* etiketa: krémový papier, vykrojené rohy (maska), dvojitý rám vnútri */
+.label { position: relative; padding: 30px 26px 24px; color: var(--navy); text-align: center; background: var(--cream);
+  -webkit-mask: radial-gradient(circle at 0 0, #0000 18px, #000 18.5px) 0 0 / 51% 51% no-repeat, radial-gradient(circle at 100% 0, #0000 18px, #000 18.5px) 100% 0 / 51% 51% no-repeat, radial-gradient(circle at 0 100%, #0000 18px, #000 18.5px) 0 100% / 51% 51% no-repeat, radial-gradient(circle at 100% 100%, #0000 18px, #000 18.5px) 100% 100% / 51% 51% no-repeat;
+  mask: radial-gradient(circle at 0 0, #0000 18px, #000 18.5px) 0 0 / 51% 51% no-repeat, radial-gradient(circle at 100% 0, #0000 18px, #000 18.5px) 100% 0 / 51% 51% no-repeat, radial-gradient(circle at 0 100%, #0000 18px, #000 18.5px) 0 100% / 51% 51% no-repeat, radial-gradient(circle at 100% 100%, #0000 18px, #000 18.5px) 100% 100% / 51% 51% no-repeat; }
+.label::before { content: ''; position: absolute; inset: 10px; border: 1px solid var(--navy); outline: 1px solid var(--navy); outline-offset: -5px; pointer-events: none; }
+.label > * { position: relative; }
+.label-k { margin: 0 0 12px; font: 500 .8125rem/1 var(--sans); letter-spacing: .26em; text-transform: uppercase; }
+.label-k span { color: var(--wine); }
+.label-crest { width: 92px; height: auto; margin: 0 auto 10px; }
+.label-h { font-size: clamp(2.3rem, 9vw, 3.5rem); line-height: .98; }
+.label-s { margin: 8px 0 18px; font: italic 600 1.25rem/1.2 var(--serif); color: var(--muted); }
+.label-dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--navy); border-bottom: 1px solid var(--navy); }
+.label-dl > div { padding: 10px 4px 9px; }
+.label-dl > div + div { border-left: 1px solid var(--line); }
+.label-dl dt { font: 500 .75rem/1.2 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.label-dl dd { margin: 3px 0 0; font: 700 1.2rem/1.1 var(--serif); }
+.label-cry { margin: 14px 0 0; font: italic 700 1.7rem/1 var(--serif); color: var(--wine); }
+@media (max-width: 379.98px) { .label { padding: 26px 18px 20px; } .label-dl dd { font-size: 1.05rem; } }
+.hero-grape { display: grid; grid-template-columns: minmax(0, 180px) minmax(0, 1fr); gap: 18px; align-items: center; margin-bottom: 22px; }
+.hero-grape figcaption { font-size: .9375rem; color: rgba(255, 255, 255, .88); }
+.hero-grape figcaption b { display: block; font: italic 600 1.45rem/1.1 var(--serif); color: #fff; margin-bottom: 4px; }
+@media (min-width: 900px) { .hero-grape { grid-template-columns: 230px minmax(0, 1fr); gap: 28px; } }
+.hero-p { max-width: 54ch; color: rgba(255, 255, 255, .9); }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; }
+.hero :focus-visible { outline-color: #fff; }
+
+/* strapec: bobule podľa výsledku, list viniča a úponok */
+.grape { display: block; width: 100%; height: auto; overflow: visible; }
+.grape .bb circle:first-child { stroke-width: 1.5; }
+.grape .g-stem, .grape .g-tendril { fill: none; stroke-width: 2; stroke-linecap: round; }
+.grape .g-vein { fill: none; stroke-width: 1; }
+.hero .grape .bb--w circle:first-child, .sec--navy .grape .bb--w circle:first-child { fill: var(--sky); stroke: var(--sky); }
+.hero .grape .bb--d circle:first-child { fill: var(--sky-2); stroke: var(--sky-2); opacity: .75; }
+.hero .grape .bb--l circle:first-child { fill: transparent; stroke: var(--sky); }
+.hero .grape .bb-h { fill: rgba(255, 255, 255, .7); }
+.hero .grape .bb--l .bb-h { display: none; }
+.hero .grape .g-stem, .hero .grape .g-tendril { stroke: var(--sky-2); }
+.hero .grape .g-leaf { fill: rgba(196, 216, 244, .14); stroke: var(--sky-2); stroke-width: 1.4; }
+.hero .grape .g-vein { stroke: var(--sky-2); }
+.team-grape { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 16px; align-items: center; margin: 4px 0 20px; font-size: .875rem; color: var(--muted); }
+.team-grape .bb--w circle:first-child { fill: var(--navy); stroke: var(--navy); }
+.team-grape .bb--d circle:first-child { fill: var(--sky-2); stroke: var(--draw); }
+.team-grape .bb--l circle:first-child { fill: var(--paper); stroke: var(--wine); }
+.team-grape .bb-h { fill: rgba(255, 255, 255, .6); }
+.team-grape .bb--l .bb-h { display: none; }
+.team-grape .g-stem, .team-grape .g-tendril, .team-grape .g-vein { stroke: var(--navy); }
+.team-grape .g-leaf { fill: var(--sky-l); stroke: var(--navy); stroke-width: 1.4; }
+.g-key { list-style: none; display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 10px 0 0; padding: 0; font-size: .875rem; }
+.g-key li { display: inline-flex; align-items: center; gap: 6px; }
+.k { width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid; }
+.hero .k--w { background: var(--sky); border-color: var(--sky); }
+.hero .k--d { background: var(--sky-2); border-color: var(--sky-2); opacity: .75; }
+.hero .k--l { border-color: var(--sky); }
+.team-grape .k--w { background: var(--navy); border-color: var(--navy); }
+.team-grape .k--d { background: var(--sky-2); border-color: var(--draw); }
+.team-grape .k--l { background: var(--paper); border-color: var(--wine); }
+
+.pause { background: var(--paper); border-bottom: 1px solid var(--line); }
+.pause p { margin: 0; padding: 14px 0; max-width: 86ch; }
+.pause b { font: italic 700 1.2rem/1 var(--serif); color: var(--wine); }
+
+/* zápas áčka a mládež */
+.now { display: grid; gap: 34px; }
+.now > * { min-width: 0; }
+@media (min-width: 1000px) { .now { grid-template-columns: minmax(0, 560px) minmax(0, 1fr); gap: 56px; } .now-h2 { margin-top: 62px; } }
+.tb { list-style: none; margin: 0 0 6px; padding: 0; display: grid; gap: 8px; }
+.tb-row { display: grid; grid-template-columns: 58px minmax(0, 1fr) auto; align-items: center; gap: 12px; min-height: 64px; padding: 8px 12px 8px 8px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; color: var(--ink); text-decoration: none; }
+.tb-row:hover { border-color: var(--navy); }
+.tb-code { display: grid; place-items: center; height: 46px; border-radius: 3px; background: var(--cream); box-shadow: inset 0 0 0 1px var(--navy), inset 0 0 0 3px var(--cream), inset 0 0 0 4px var(--navy); color: var(--navy); font: 700 1.2rem/1 var(--serif); white-space: nowrap; }
+.tb-main { display: flex; flex-direction: column; min-width: 0; }
+.tb-top { font-size: .8125rem; color: var(--muted); }
+.tb-opp { font-weight: 500; line-height: 1.25; overflow-wrap: anywhere; }
+.tb-score { min-width: 54px; padding: 7px 9px 6px; border-radius: 999px; text-align: center; font: 700 1.25rem/1 var(--serif); white-space: nowrap; }
+.tb-score--none { font: 500 .75rem/1.1 var(--sans); color: var(--muted); background: var(--cream); }
+.tb-score--time { box-shadow: inset 0 0 0 1.5px var(--navy); color: var(--navy); }
+
+/* ---- zápasová karta: etiketa s vykrojenými rohmi ---- */
+.mp { position: relative; padding: 24px 22px 16px; color: var(--navy); background: var(--paper);
+  -webkit-mask: radial-gradient(circle at 0 0, #0000 14px, #000 14.5px) 0 0 / 51% 51% no-repeat, radial-gradient(circle at 100% 0, #0000 14px, #000 14.5px) 100% 0 / 51% 51% no-repeat, radial-gradient(circle at 0 100%, #0000 14px, #000 14.5px) 0 100% / 51% 51% no-repeat, radial-gradient(circle at 100% 100%, #0000 14px, #000 14.5px) 100% 100% / 51% 51% no-repeat;
+  mask: radial-gradient(circle at 0 0, #0000 14px, #000 14.5px) 0 0 / 51% 51% no-repeat, radial-gradient(circle at 100% 0, #0000 14px, #000 14.5px) 100% 0 / 51% 51% no-repeat, radial-gradient(circle at 0 100%, #0000 14px, #000 14.5px) 0 100% / 51% 51% no-repeat, radial-gradient(circle at 100% 100%, #0000 14px, #000 14.5px) 100% 100% / 51% 51% no-repeat; }
+.mp::before { content: ''; position: absolute; inset: 7px; border: 1px solid var(--navy); pointer-events: none; }
+.sec--cream .mp, .match-card .mp { background: var(--paper); }
+.sec:not(.sec--cream):not(.sec--navy) .mp { background: var(--cream); }
+.mp > * { position: relative; }
+.mp-top { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 2px 12px; margin: 0 0 4px; font: 500 .75rem/1.3 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.mp-label { color: var(--wine); }
+.mp-when { margin: 0 0 14px; font: italic 600 1.2rem/1.2 var(--serif); }
+.mp-row { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: start; gap: 10px; }
+.mp-side { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; min-width: 0; }
+.mp-crest { display: grid; place-items: center; width: 64px; height: 64px; }
+.mp-crest .logo { width: 52px; height: 52px; object-fit: contain; }
+.mp-name { font: 700 1.25rem/1.1 var(--serif); overflow-wrap: anywhere; }
+.mp-role { font: 500 .75rem/1.2 var(--sans); letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
+.mp-score { margin: 12px 0 0; font: 700 3rem/1 var(--serif); white-space: nowrap; text-align: center; }
+.mp-colon { margin: 0 .06em; color: var(--sky-2); }
+.mp-time { font-size: 2.2rem; }
+.mp-note { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 4px 12px; margin: 10px 0 0; font-size: .875rem; color: var(--muted); min-height: 1.4em; }
+.mp-res { font: 500 .75rem/1 var(--sans); text-transform: uppercase; letter-spacing: .16em; padding: 6px 12px 5px; border-radius: 999px; color: #fff; }
+.mp-res--w { background: var(--win); }
+.mp-res--d { background: var(--draw); }
+.mp-res--l { background: var(--loss); }
+.cd { color: var(--wine); font-weight: 500; }
+.mp-meta { margin: 12px 0 0; padding-top: 10px; border-top: 1px solid var(--line); font-size: .8125rem; color: var(--muted); text-align: center; }
+.mp-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 18px; margin: 4px 0 0; }
+.mp-a { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; font-weight: 500; font-size: .9375rem; color: var(--navy); }
+.mp-a .i { width: 16px; height: 16px; }
+@media (max-width: 379.98px) { .mp { padding: 22px 14px 14px; } .mp-name { font-size: 1.05rem; } .mp-score { font-size: 2.5rem; } .mp-crest { width: 52px; height: 52px; } .mp-crest .logo { width: 44px; height: 44px; } }
+@media (min-width: 520px) {
+  .mp--big { padding: 30px 30px 18px; }
+  .mp--big .mp-crest { width: 84px; height: 84px; }
+  .mp--big .mp-crest .logo { width: 70px; height: 70px; }
+  .mp--big .mp-name { font-size: 1.45rem; }
+  .mp--big .mp-score { font-size: 4rem; margin-top: 16px; }
+}
+.pitch-next .mp { background: var(--cream); }
+
+/* ---- zoznam zápasov: visačky (program) a pivnica (výsledky) ---- */
+.mlist { list-style: none; margin: 0; padding: 0; }
+/* visačka: papier s odrezanými hornými rohmi, dierka a šnúrka */
+.mlist--tags { display: grid; gap: 22px 10px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 132px), 1fr)); padding-top: 14px; }
+.mrow--tag { position: relative; }
+.mrow--tag::before { content: ''; position: absolute; left: 50%; top: -14px; width: 1.5px; height: 24px; background: var(--sky-2); z-index: 1; }
+.mrow--tag:nth-child(odd) .vt { rotate: -1.2deg; }
+.mrow--tag:nth-child(even) .vt { rotate: 1deg; }
+.vt { position: relative; display: flex; flex-direction: column; height: 100%; padding: 26px 14px 14px; background: var(--paper); color: var(--ink); text-decoration: none; clip-path: polygon(18px 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%, 0 18px); box-shadow: inset 0 0 0 1px var(--line); }
+.vt::before { content: ''; position: absolute; left: 50%; top: 8px; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: var(--bg); box-shadow: inset 0 0 0 2px var(--sky-2); }
+.sec--cream .vt::before { background: var(--cream); }
+.vt::after { content: ''; position: absolute; inset: 0; clip-path: inherit; border-top: 3px solid var(--navy); pointer-events: none; }
+a.vt:hover { background: var(--sky-l); }
+a.vt:hover .vt-o { text-decoration: underline; }
+.vt-d { display: flex; flex-direction: column; text-align: center; padding-bottom: 8px; margin-bottom: 8px; border-bottom: 1px dashed var(--line); }
+.vt-d time { font: 700 1.9rem/1 var(--serif); color: var(--navy); }
+.vt-d span { margin-top: 4px; font: 500 .75rem/1.2 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.vt-o { font-weight: 500; line-height: 1.25; overflow-wrap: anywhere; text-align: center; }
+.vt-k { margin-top: auto; padding-top: 6px; font-size: .75rem; line-height: 1.35; color: var(--muted); text-align: center; }
+.vt-k b { color: var(--wine); font-weight: 600; }
+/* pivnica: regál s krížovými latkami, dno fľaše so skóre a menovka pod ním */
+.mlist--cellar { display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 106px), 1fr)); padding: 12px; background: repeating-linear-gradient(45deg, transparent 0 22px, rgba(13, 33, 64, .08) 22px 23px), repeating-linear-gradient(-45deg, transparent 0 22px, rgba(13, 33, 64, .08) 22px 23px), var(--cream-2); border-radius: 4px; box-shadow: inset 0 0 0 1px var(--line); }
+.bt { display: flex; flex-direction: column; align-items: center; height: 100%; gap: 6px; color: var(--ink); text-decoration: none; }
+.bt-c { display: grid; place-items: center; align-content: center; width: 84px; height: 84px; border-radius: 50%; color: #fff; text-align: center; background: radial-gradient(circle, transparent 46%, rgba(0, 0, 0, .18) 47% 52%, transparent 53%), var(--c, var(--win)); box-shadow: 0 0 0 3px var(--cream-2), 0 0 0 4px rgba(13, 33, 64, .25), inset 0 -6px 10px rgba(0, 0, 0, .2); }
+.bt--w { --c: var(--win); }
+.bt--d { --c: var(--draw); }
+.bt--l { --c: var(--loss); }
+.bt--n { --c: #6b7385; }
+.bt-s { font: 700 1.65rem/1 var(--serif); white-space: nowrap; }
+.bt-r { margin-top: 2px; font: 500 .75rem/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; color: rgba(255, 255, 255, .92); }
+.bt-na { padding: 0 10px; font: 500 .75rem/1.15 var(--sans); }
+.bt-l { display: flex; flex-direction: column; width: 100%; padding: 6px 6px 7px; background: var(--paper); border-radius: 2px; text-align: center; box-shadow: 0 1px 0 rgba(13, 33, 64, .12); }
+.bt-o { font-size: .8125rem; font-weight: 500; line-height: 1.2; overflow-wrap: anywhere; }
+.bt-k { margin-top: 3px; font-size: .75rem; line-height: 1.3; color: var(--muted); }
+a.bt:hover .bt-c { box-shadow: 0 0 0 3px var(--cream-2), 0 0 0 5px var(--navy), inset 0 -6px 10px rgba(0, 0, 0, .2); }
+a.bt:hover .bt-o { text-decoration: underline; }
+@media (max-width: 359.98px) { .bt-c { width: 76px; height: 76px; } .bt-s { font-size: 1.45rem; } }
+.res-bg--w { background: var(--win); color: #fff; }
+.res-bg--d { background: var(--draw); color: #fff; }
+.res-bg--l { background: var(--loss); color: #fff; }
+.month + .month { margin-top: 30px; }
+.month-h { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; font: italic 600 1.35rem/1.2 var(--serif); color: var(--navy); }
+.month-h::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+.cols2--list .h2 { margin-bottom: 18px; }
+.empty { color: var(--muted); padding: 12px 0; }
+.logo--txt { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--sky-l); color: var(--navy); font: 600 .75rem/1 var(--sans); }
+.mp-crest .logo--txt { width: 52px; height: 52px; font-size: 1rem; }
+
+/* filtre */
+html:not(.js) .filters { display: none; }
+html.flt .cols2--list { visibility: hidden; }
+.filters { display: flex; flex-direction: column; gap: 10px; margin-bottom: 30px; }
+.chips { display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; margin: -4px calc(-1 * var(--gut)); padding: 6px var(--gut); }
+.chips::-webkit-scrollbar { display: none; }
+.chip { flex: none; min-height: 44px; padding: 8px 16px; border: 1.5px solid var(--line); border-radius: 999px; background: var(--paper); color: var(--ink); font: 500 .875rem/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; cursor: pointer; }
+.chip:hover { border-color: var(--navy); }
+.chip[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
+@media (min-width: 700px) { .chips { flex-wrap: wrap; margin: 0; padding: 0; overflow: visible; } }
+.cal-row { margin-top: 32px; }
+
+/* kalendár */
+.cal { position: relative; display: inline-block; }
+.cal > summary { list-style: none; }
+.cal > summary::-webkit-details-marker { display: none; }
+.cal-pop { position: absolute; z-index: 20; left: 0; top: calc(100% + 6px); width: min(320px, calc(100vw - 2 * var(--gut))); background: var(--paper); border: 1px solid var(--line); border-radius: 4px; padding: 6px; box-shadow: 0 16px 30px -12px rgba(13, 33, 64, .35); }
+.cal-o { display: flex; flex-direction: column; gap: 2px; padding: 10px 12px; color: var(--ink); text-decoration: none; border-radius: 3px; }
+.cal-o:hover { background: var(--cream); }
+.cal-o b { color: var(--navy); font-weight: 600; }
+.cal-o span { font-size: .8125rem; color: var(--muted); }
+
+/* ---- tabuľka ---- */
+.tbl-wrap { overflow-x: auto; }
+.tbl { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; font-size: .9375rem; background: var(--paper); }
+.tbl caption { text-align: left; }
+.tbl th, .tbl td { padding: 9px 6px; text-align: center; border-bottom: 1px solid var(--line); }
+.tbl thead th { font: 500 .75rem/1.2 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); border-bottom: 3px double var(--navy); }
+.tbl .tl { text-align: left; }
+.tbl tbody th { font-weight: 400; }
+.tbl .pos { font: 700 1.2rem/1 var(--serif); color: var(--navy); }
+.tteam { display: flex; align-items: center; gap: 10px; }
+.tteam .logo { width: 24px; height: 24px; object-fit: contain; flex: none; }
+.tteam .logo--txt { width: 24px; height: 24px; font-size: .625rem; }
+.tbl tr.our { background: var(--sky-l); }
+.tbl tr.our th, .tbl tr.our td { color: var(--navy); font-weight: 600; }
+.tbl tr.our .pos { box-shadow: inset 4px 0 0 var(--navy); }
+@media (max-width: 559.98px) { .tbl .hm { display: none; } .tbl th, .tbl td { padding: 9px 4px; } }
+.tsec + .tsec { margin-top: 56px; }
+.tsec-l { margin: -14px 0 14px; color: var(--muted); }
+.toc { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 36px; }
+.toc a { min-height: 44px; display: inline-flex; align-items: center; padding: 8px 16px; border: 1.5px solid var(--line); border-radius: 999px; font: 500 .875rem/1 var(--sans); letter-spacing: .1em; text-transform: uppercase; color: var(--navy); text-decoration: none; background: var(--paper); }
+.toc a:hover { border-color: var(--navy); }
+/* ročníky v tabuľke na tmavom podklade */
+.tbl-wrap--inv { margin-top: 34px; }
+.tbl--roc { background: transparent; color: #fff; }
+.tbl--roc th, .tbl--roc td { border-bottom-color: rgba(196, 216, 244, .2); }
+.tbl--roc thead th { color: var(--sky); border-bottom-color: var(--sky); }
+.tbl--roc tbody th { font: 700 1.15rem/1.2 var(--serif); }
+.tbl--roc td small { display: block; font-size: .75rem; color: rgba(255, 255, 255, .78); }
+.tbl--roc tr.our { background: rgba(227, 205, 138, .16); }
+.tbl--roc tr.our th, .tbl--roc tr.our td { color: #fff; }
+.tbl--roc tr.our th { box-shadow: inset 4px 0 0 var(--straw); padding-left: 10px; }
+
+/* liga na úvode */
+.liga { display: grid; gap: 28px; }
+.liga > * { min-width: 0; }
+@media (min-width: 1000px) { .liga { grid-template-columns: 190px minmax(0, 1.5fr) minmax(0, 1fr); gap: 40px; align-items: start; } }
+.liga-pos { display: flex; align-items: center; gap: 16px; }
+.liga-n { margin: 0; font: 700 5.4rem/.8 var(--serif); color: var(--navy); }
+.liga-pos p:last-child { margin: 0; color: var(--muted); line-height: 1.4; }
+@media (min-width: 1000px) { .liga-pos { flex-direction: column; align-items: flex-start; } .liga-n { font-size: 7rem; } }
+.stat { display: flex; align-items: baseline; flex-wrap: wrap; gap: 6px 12px; margin: 0 0 18px; }
+.stat-n { font: 700 3rem/.95 var(--serif); color: var(--navy); }
+.stat-l { color: var(--muted); max-width: 28ch; line-height: 1.35; }
+.liga-row { display: flex; align-items: center; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 18px; }
+.liga-row .h4 { min-width: 64px; }
+.liga-row--list { display: block; }
+.liga-row--list .h4 { margin-bottom: 6px; }
+/* forma ako rad bobúľ */
+.form { list-style: none; display: flex; gap: 6px; margin: 0; padding: 0; }
+.form li { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font: 600 .875rem/1 var(--sans); box-shadow: inset -3px -4px 6px rgba(0, 0, 0, .2); }
+.scorers { list-style: none; margin: 0; padding: 0; flex: 1 1 220px; }
+.scorers li { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 7px 0; border-bottom: 1px solid var(--line); }
+.scorers b { font: 700 1.3rem/1 var(--serif); color: var(--navy); }
+
+/* ---- vinotéka: ročníky ako fľaše na polici ---- */
+.shelf-defs { position: absolute; }
+.shelf-wrap { position: relative; }
+.shelf { list-style: none; margin: 0; padding: 0 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(60px, 1fr)); gap: 22px 6px; }
+@media (min-width: 900px) { .shelf { grid-template-columns: repeat(14, minmax(0, 1fr)); gap: 0 8px; } }
+.btl { position: relative; display: flex; flex-direction: column; align-items: center; padding-bottom: 8px; border-bottom: 5px solid var(--sky-2); }
+.btl-s { width: 46px; height: auto; overflow: visible; }
+.btl-glass { fill: rgba(196, 216, 244, .13); }
+.btl-wine { fill: var(--straw); }
+.btl-cap { fill: var(--sky-2); }
+.btl-lab { fill: var(--cream); opacity: .92; }
+.btl-o { fill: none; stroke: var(--sky); stroke-width: 1.3; }
+.btl--gold .btl-cap { fill: var(--gold); }
+.btl--gold .btl-o { stroke: var(--gold); stroke-width: 2; }
+.btl--now .btl-o { stroke-dasharray: 4 3; }
+.btl--now .btl-wine { opacity: .7; }
+.btl--empty .btl-lab { opacity: .35; }
+.btl-p { margin-top: 6px; font: 700 1.5rem/1 var(--serif); color: #fff; }
+.btl--gold .btl-p { color: var(--straw); }
+.btl-y { margin-top: 2px; font: 500 .75rem/1.2 var(--sans); letter-spacing: .06em; color: var(--sky); white-space: nowrap; }
+@media (min-width: 900px) { .btl-s { width: 54px; } }
+
+/* titul 2024/25 */
+.title { display: grid; gap: 30px; }
+.title > * { min-width: 0; }
+@media (min-width: 960px) { .title { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 60px; align-items: center; } }
+.title-score { position: relative; display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; padding: 34px 20px 26px; background: var(--rows), var(--cream); text-align: center; color: var(--navy); border: 1px solid var(--line); }
+.title-score span { font: 700 clamp(5rem, 20vw, 8.5rem)/.85 var(--serif); }
+.title-score span:first-child { color: var(--wine); }
+.title-score i { font: 600 4rem/1 var(--serif); color: var(--sky-2); margin: 0 .1em; }
+.title-score small { flex-basis: 100%; margin-top: 14px; font: 500 .75rem/1.3 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+.quote { margin: 22px 0 14px; padding: 4px 0 4px 20px; border-left: 3px solid var(--wine); }
+.quote p { margin: 0 0 6px; font: italic 600 1.6rem/1.25 var(--serif); color: var(--navy); }
+.quote footer { font-size: .875rem; color: var(--muted); }
+
+/* obec v piatich faktoch ako zadná etiketa */
+.facts5 { list-style: none; margin: 0 0 16px; padding: 0; display: grid; gap: 0; border-top: 3px double var(--navy); }
+.facts5 li { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.facts5 p { margin: 0; }
+.f5-k { font: 700 1.5rem/1.1 var(--serif); color: var(--wine); }
+@media (max-width: 479.98px) { .facts5 li { grid-template-columns: 1fr; gap: 4px; } }
+@media (min-width: 1000px) { .facts5 { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 0 26px; border-top: 0; } .facts5 li { grid-template-columns: 1fr; align-content: start; gap: 8px; padding: 18px 0 0; border-bottom: 0; border-top: 3px double var(--navy); } .facts5 li p:last-child { font-size: .9375rem; } }
+
+/* ihrisko */
+.pitch { display: grid; gap: 34px; }
+.pitch > * { min-width: 0; }
+@media (min-width: 960px) { .pitch { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 56px; align-items: start; } }
+.mini { list-style: none; margin: 0 0 22px; padding: 0; }
+.mini li { padding: 10px 0; border-bottom: 1px solid rgba(196, 216, 244, .22); line-height: 1.45; }
+.mini b { display: inline-block; min-width: 48px; font: 700 1.15rem/1 var(--serif); color: var(--straw); }
+.mini--light li { border-bottom-color: var(--line); }
+.mini--light b { color: var(--wine); }
+.stad { display: grid; gap: 34px; }
+.stad > * { min-width: 0; }
+@media (min-width: 1000px) { .stad { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 56px; } }
+
+/* ---- tímy: menovky ako etikety ---- */
+.tgrid { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
+.tcard a { position: relative; display: flex; flex-direction: column; height: 100%; padding: 18px 18px 14px; background: var(--paper); color: var(--ink); text-decoration: none; box-shadow: inset 0 0 0 1px var(--line), inset 0 0 0 5px var(--paper), inset 0 0 0 6px var(--navy); }
+.tcard a:hover { background: var(--sky-l); }
+.tcard--a { grid-column: 1 / -1; }
+.tcard--a a { background: var(--navy); color: #fff; box-shadow: inset 0 0 0 5px var(--navy), inset 0 0 0 6px var(--sky-2); }
+.tcard--a a:hover { background: var(--navy-2); }
+.tcard-n { font: 700 2.1rem/1 var(--serif); color: var(--navy); }
+.tcard--a .tcard-n { color: #fff; }
+.tcard-s { margin-top: 6px; font-weight: 500; font-size: .9375rem; }
+.tcard-l { font-size: .875rem; color: var(--muted); margin-top: 4px; line-height: 1.35; }
+.tcard--a .tcard-l, .tcard--a .tcard-p, .tcard--a .tcard-k { color: rgba(255, 255, 255, .86); }
+.tcard-p { margin-top: auto; padding-top: 10px; font-size: .875rem; color: var(--muted); }
+.tcard-p b { font: 700 1.5rem/1 var(--serif); color: var(--navy); }
+.tcard--a .tcard-p b { color: #fff; }
+.tcard-k { font-size: .8125rem; color: var(--muted); margin-top: 4px; }
+
+.join { padding: 28px 24px 10px; background: var(--rows), var(--cream); border: 1px solid var(--line); }
+.join .h3 { margin-bottom: 8px; }
+
+.team-top { display: grid; gap: 30px; }
+@media (min-width: 1000px) { .team-top { grid-template-columns: minmax(0, 560px) minmax(0, 1fr); gap: 56px; align-items: start; } }
+.team-side { min-width: 0; }
+.sq-h { margin: 26px 0 10px; }
+.squad { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr)); }
+.pl { display: flex; align-items: center; gap: 12px; padding: 8px; background: var(--paper); border: 1px solid var(--line); border-radius: 4px; min-height: 56px; }
+.pl-nr { flex: none; display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--navy); color: #fff; font: 700 1.2rem/1 var(--serif); }
+.pl-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--sky); }
+.pl-name { font-weight: 500; line-height: 1.25; }
+.cap { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: var(--wine); color: #fff; font: 600 .75rem/1 var(--sans); vertical-align: 1px; margin-left: 4px; }
+.crew { list-style: none; margin: 0; padding: 0; display: grid; gap: 0 32px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); }
+.crew li { display: flex; flex-direction: column; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.crew-r { font: 500 .75rem/1.3 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+/* ---- detail zápasu ---- */
+.match { display: grid; gap: 34px; }
+@media (min-width: 1000px) { .match { grid-template-columns: minmax(0, 560px) minmax(0, 1fr); gap: 56px; align-items: start; } .lineups, .meet { grid-column: 1 / -1; } }
+.match-info { min-width: 0; }
+.evs { list-style: none; margin: 0 0 26px; padding: 0; border-top: 3px double var(--navy); }
+.ev { display: grid; grid-template-columns: 46px 24px minmax(0, 1fr); align-items: center; gap: 10px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: .9375rem; }
+.ev > span:last-child { display: flex; flex-direction: column; line-height: 1.3; }
+.ev small { font-size: .75rem; color: var(--muted); }
+.ev--h { background: linear-gradient(90deg, var(--cream), transparent 60%); }
+.ev-min { text-align: right; font: 700 1.15rem/1 var(--serif); color: var(--navy); }
+.ev-i { display: inline-grid; place-items: center; width: 22px; height: 22px; color: var(--navy); font-size: .95rem; }
+.ev-goal .i { width: 18px; height: 18px; }
+.ev-card { width: 13px; height: 18px; border-radius: 2px; }
+.ev-card--yellow { background: #f5c400; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .15); }
+.ev-card--red { background: #c62828; }
+.ev-card--yellow-red { background: linear-gradient(135deg, #f5c400 50%, #c62828 50%); }
+.ev-sub { color: var(--muted); }
+.facts { display: grid; gap: 0 28px; margin: 0 0 22px; }
+.facts > div { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.facts dt { font: 500 .75rem/2 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.facts dd { margin: 0; overflow-wrap: anywhere; }
+.lineups { display: grid; gap: 26px; }
+.lineups-h { margin: 0; }
+@media (min-width: 700px) { .lineups { grid-template-columns: 1fr 1fr; column-gap: 48px; } .lineups-h { grid-column: 1 / -1; } }
+.lineup .h4 { padding-bottom: 8px; border-bottom: 3px double var(--navy); margin-bottom: 6px; font: 700 1.35rem/1.2 var(--serif); }
+.ln { list-style: none; margin: 0; padding: 0; }
+.ln li { display: flex; gap: 12px; padding: 5px 0; border-bottom: 1px solid var(--line); }
+.ln-nr { width: 28px; text-align: right; font: 700 1.1rem/1.5 var(--serif); color: var(--wine); flex: none; }
+.ln--subs li { color: var(--muted); }
+.ln-h { margin: 14px 0 4px; font: 500 .75rem/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.ln-coach { margin-top: 10px; font-size: .9375rem; }
+
+/* ---- mládež ---- */
+.youth-top { display: grid; gap: 30px; }
+.youth-top > * { min-width: 0; }
+@media (min-width: 960px) { .youth-top { grid-template-columns: minmax(0, 1fr) minmax(0, 400px); gap: 56px; align-items: start; } }
+.coaches { list-style: none; margin: 20px 0 12px; padding: 0; border-top: 3px double var(--navy); }
+.coaches a { display: flex; flex-direction: column; padding: 12px 0; border-bottom: 1px solid var(--line); color: var(--ink); text-decoration: none; }
+.coaches a:hover b { text-decoration: underline; }
+.coaches b { font: 700 1.5rem/1.1 var(--serif); color: var(--navy); }
+.coaches span { font-size: .9375rem; }
+.coaches small { font-size: .8125rem; color: var(--muted); }
+
+/* ---- klub ---- */
+.prose { max-width: 70ch; }
+.klub-grid { display: grid; gap: 44px; }
+.klub-grid > * { min-width: 0; }
+@media (min-width: 1000px) { .klub-grid { grid-template-columns: minmax(0, 1fr) 330px; gap: 60px; } }
+.annals { list-style: none; margin: 18px 0 0; padding: 0; border-top: 3px double var(--navy); }
+.annals li { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.annals-y { margin: 0; font: 700 1.45rem/1.15 var(--serif); color: var(--wine); }
+.annals p { margin: 0 0 4px; }
+.annals small { font-size: .8125rem; color: var(--muted); }
+.annals-now { background: linear-gradient(90deg, var(--sky-l), transparent 70%); }
+@media (min-width: 700px) { .annals li { grid-template-columns: 120px minmax(0, 1fr); } }
+.klub-aside img { width: 160px; margin-bottom: 14px; }
+.klub-aside .h4 { margin: 18px 0 10px; font: 700 1.45rem/1.1 var(--serif); color: var(--navy); }
+.wins { list-style: none; margin: 0 0 10px; padding: 0; }
+.wins li { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--line); line-height: 1.35; }
+.wins .i { width: 20px; height: 20px; margin-top: 1px; color: var(--gold); }
+.wins b { font: 700 1.1rem/1 var(--serif); }
+.cry { margin: 18px 0 0; font-size: 2rem; font-style: italic; color: var(--wine); }
+
+/* ---- kontakt ---- */
+.contact { display: grid; gap: 28px; }
+.contact > * { min-width: 0; }
+@media (min-width: 900px) { .contact { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 44px; align-items: start; } }
+.ccard { position: relative; padding: 28px 24px 12px; background: var(--cream); color: var(--navy); }
+.ccard::before { content: ''; position: absolute; inset: 7px; border: 1px solid var(--navy); pointer-events: none; }
+.ccard > * { position: relative; }
+.ccard-n { font-size: 2.3rem; line-height: 1; margin: 4px 0 16px; }
+.docs { list-style: none; margin: 0 0 16px; padding: 0; border-top: 3px double var(--navy); }
+.docs a { display: grid; grid-template-columns: auto 1fr; gap: 2px 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--navy); font-weight: 500; }
+.docs a .i { grid-row: span 2; width: 20px; height: 20px; color: var(--wine); }
+.docs small { font-weight: 400; color: var(--muted); }
+.docs a:hover span { text-decoration: underline; }
+
+/* ---- päta ---- */
+.ftr { background: var(--rows-inv), var(--navy-d); color: rgba(255, 255, 255, .88); font-size: .9375rem; border-top: 4px double var(--sky-2); }
+.ftr a { color: #fff; }
+.ftr :focus-visible { outline-color: #fff; }
+.ftr-grid { display: grid; gap: 28px; padding-top: 42px; padding-bottom: 32px; }
+@media (min-width: 700px) { .ftr-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .ftr-grid { grid-template-columns: 1.2fr 1fr 1fr 1fr; gap: 36px; } }
+.ftr-club img { width: 64px; height: auto; margin-bottom: 12px; }
+.ftr-cry { margin: 0 0 6px; font-size: 2.2rem; font-style: italic; line-height: 1; color: var(--straw); }
+.ftr-motto { color: var(--sky); }
+.ftr-h { margin-bottom: 10px; font: 500 .75rem/1.2 var(--sans); letter-spacing: .2em; text-transform: uppercase; color: var(--sky); }
+.ftr p { margin-bottom: .6em; }
+.ftr-bar { border-top: 1px solid rgba(196, 216, 244, .2); }
+.ftr-bar-in { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 24px; padding-top: 10px; padding-bottom: 14px; font-size: .875rem; color: rgba(255, 255, 255, .78); }
+.ftr-bar a { color: rgba(255, 255, 255, .9); }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
+
+/* dotykové plochy na telefóne (WCAG 2.2: aspoň 24 px, cieľ 44 px) */
+.ftr p a, .ftr-bar a { display: inline-block; padding: 11px 0; margin: -6px 0; }
+.ftr-bar a { margin: 0; }
+.crumbs a { display: inline-block; padding: 13px 6px; margin: -13px -6px; }
+.src a, .facts dd a, .note a { display: inline-block; padding: 12px 0; margin: -12px 0; line-height: 20px; }

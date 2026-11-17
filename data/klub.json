@@ -1,0 +1,275 @@
+{
+  "_zdroj": "Ručne zapísané len zo zverejnených zdrojov (uvedené pri každej časti). Nič nedopĺňať odhadom – chýbajúce údaje dodá klub.",
+  "nazov": "TJ-ŠK Radošina",
+  "kratky": "Radošina",
+  "pravnyNazov": "Telovýchovná jednota – Športový klub Radošina",
+  "_pravnyNazov": "Sportnet (Telovýchovná jednota - Športový klub Radošina)",
+  "mesto": "Radošina",
+  "zalozenie": 1933,
+  "_zalozenie": "rok na erbe klubu (Sportnet)",
+  "pokrik": "Pome ŠK!",
+  "_pokrik": "Radošinské noviny 2/2025 (článok o titule)",
+  "farby": "tmavomodrá a svetlomodrá",
+  "_farby": "erb klubu (Sportnet)",
+  "erbAlt": "Erb TJ-ŠK Radošina: modrý štít s nápisom ŠK Radošina, futbalová lopta medzi vinohradníckym nožom a strapcom hrozna, dole rok 1933",
+  "adresa": [
+    "Nádražná",
+    "956 05 Radošina"
+  ],
+  "_adresa": "Sportnet (ulica Nádražná, PSČ 956 05)",
+  "kontakt": {
+    "email": "tjskradosinaissf@gmail.com"
+  },
+  "_kontakt": "Sportnet (kontakt klubu)",
+  "sportnetUrl": "https://sportnet.sme.sk/futbalnet/k/tj-sk-radosina/",
+  "noviny": "https://www.radosina.sk/radosinske-noviny.html",
+  "_noviny": "Radošinské noviny, štvrťročník obce – klub v nich píše rubriku „Čo nové v TJ ŠK Radošina“",
+  "stadion": {
+    "_zdroj": "Sportnet (poloha, ulica); Radošinské noviny 3/2023, 2/2025, 1/2026 (úpravy areálu)",
+    "nazov": "Futbalový štadión Radošina",
+    "geo": [
+      48.5461459,
+      17.9406413
+    ],
+    "ulica": "Nádražná",
+    "upravy": [
+      {
+        "rok": "2023",
+        "text": "V lete nové okná v klubovej budove (z demontovaných okien obecného úradu), opravené zábradlie okolo hracej plochy a dobudované osvetlenie tréningovej plochy."
+      },
+      {
+        "rok": "2025",
+        "text": "Na ihrisku sa dokončuje závlahový systém, aby bol trávnik v dobrej kondícii celú sezónu."
+      },
+      {
+        "rok": "2025",
+        "text": "Priaznivci futbalu postavili oplotenie okolo novej oddychovej zóny za multifunkčným ihriskom."
+      }
+    ]
+  },
+  "rocniky": {
+    "_zdroj": "Sportnet – konečné tabuľky áčka (dospelí) v jednotlivých sezónach, stiahnuté 17. 11. 2026",
+    "zoznam": [
+      {
+        "rok": "2013/14",
+        "liga": "V. liga Západ",
+        "poz": 7,
+        "z": 16,
+        "skore": "54:40",
+        "body": 48
+      },
+      {
+        "rok": "2014/15",
+        "liga": "V. liga Stred",
+        "poz": 3,
+        "z": 16,
+        "skore": "55:50",
+        "body": 51,
+        "pozn": "o bod za druhými Tovarníkmi"
+      },
+      {
+        "rok": "2015/16",
+        "liga": "V. liga Stred",
+        "poz": 12,
+        "z": 16,
+        "skore": "35:71",
+        "body": 33
+      },
+      {
+        "rok": "2016/17",
+        "liga": "V. liga Stred",
+        "poz": 12,
+        "z": 16,
+        "skore": "28:64",
+        "body": 25
+      },
+      {
+        "rok": "2017/18",
+        "liga": "V. liga Stred",
+        "poz": null,
+        "z": 14,
+        "skore": "",
+        "body": null,
+        "pozn": "áčko v súťaži neodohralo žiadny zápas"
+      },
+      {
+        "rok": "2018/19",
+        "liga": "VII. liga ObFZ Topoľčany",
+        "poz": 2,
+        "z": 13,
+        "skore": "119:26",
+        "body": 56,
+        "pozn": "119 gólov v 22 zápasoch"
+      },
+      {
+        "rok": "2019/20",
+        "liga": "VI. liga ObFZ Topoľčany",
+        "poz": 4,
+        "z": 16,
+        "skore": "48:24",
+        "body": 28,
+        "pozn": "nedohraná sezóna (pandémia)"
+      },
+      {
+        "rok": "2020/21",
+        "liga": "VI. liga ObFZ Topoľčany",
+        "poz": 7,
+        "z": 16,
+        "skore": "29:12",
+        "body": 15,
+        "pozn": "nedohraná sezóna (pandémia)"
+      },
+      {
+        "rok": "2021/22",
+        "liga": "VI. liga ObFZ Topoľčany",
+        "poz": 5,
+        "z": 14,
+        "skore": "69:40",
+        "body": 46
+      },
+      {
+        "rok": "2022/23",
+        "liga": "VII. liga ObFZ Topoľčany",
+        "poz": 2,
+        "z": 14,
+        "skore": "101:32",
+        "body": 56
+      },
+      {
+        "rok": "2023/24",
+        "liga": "VII. liga ObFZ Topoľčany",
+        "poz": 3,
+        "z": 14,
+        "skore": "89:30",
+        "body": 59
+      },
+      {
+        "rok": "2024/25",
+        "liga": "VII. liga ObFZ Topoľčany",
+        "poz": 1,
+        "z": 14,
+        "skore": "68:27",
+        "body": 54,
+        "pozn": "majster okresu, o bod pred Čermanmi, postup do VI. ligy",
+        "majster": true
+      },
+      {
+        "rok": "2025/26",
+        "liga": "VI. liga Severovýchod",
+        "poz": 11,
+        "z": 16,
+        "skore": "44:64",
+        "body": 38,
+        "pozn": "prvý ročník po postupe"
+      }
+    ]
+  },
+  "titul": {
+    "_zdroj": "Radošinské noviny 2/2025 (Čo nové v TJ ŠK Radošina, tréner A-mužstva Jozef Piršel ml.); Sportnet (konečná tabuľka VII. ligy ObFZ Topoľčany 2024/25)",
+    "nadpis": "Titul je náš!",
+    "odseky": [
+      "Do ročníka 2024/25 vstupovala Radošina s jasným cieľom vyhrať súťaž. Prvé štyri kolá vyhrala, jedinú jesennú prehru utrpela v Čermanoch a s jedenástimi výhrami, remízou a prehrou prezimovala na prvom mieste.",
+      "Na jar prišli zranenia, slabšia účasť na tréningoch a disciplinárny trest – odpočítanie troch bodov. Pred posledným kolom už titul vyzeral stratený. Čermany však doma posledný krok nezvládli, a keď v Radošine rozhodca odpískal koniec zápasu, prišla správa o ich zaváhaní.",
+      "Radošina vyhrala VII. ligu ObFZ Topoľčany o jediný bod, 54 bodov pred 53 bodmi Čerman, a od ročníka 2025/26 hrá VI. ligu Severovýchod Západoslovenského futbalového zväzu."
+    ],
+    "citat": "Chlapci bojovali až do posledného kola. A stal sa malý športový zázrak.",
+    "citatKto": "tréner áčka v Radošinských novinách"
+  },
+  "historia": [
+    {
+      "rok": "1933",
+      "text": "Rok založenia futbalu v Radošine uvádza erb klubu.",
+      "zdroj": "erb klubu"
+    },
+    {
+      "rok": "2014/15",
+      "text": "Áčko končí v V. lige Stred tretie, o bod za druhými Tovarníkmi.",
+      "zdroj": "Sportnet"
+    },
+    {
+      "rok": "2018/19",
+      "text": "Po návrate do okresnej VII. ligy strelí áčko 119 gólov v 22 zápasoch a skončí druhé.",
+      "zdroj": "Sportnet"
+    },
+    {
+      "rok": "2023",
+      "text": "Pod trénerom Petrom Čierňavom začínajú trénovať najmenšie deti, prvý tréning bol 30. septembra na štadióne. Klubová budova dostala nové okná a tréningová plocha osvetlenie.",
+      "zdroj": "Radošinské noviny 3/2023"
+    },
+    {
+      "rok": "2024/25",
+      "text": "Titul vo VII. lige ObFZ Topoľčany o bod pred Čermanmi napriek odpočítaným trom bodom a postup do VI. ligy.",
+      "zdroj": "Radošinské noviny 2/2025, Sportnet"
+    },
+    {
+      "rok": "2025",
+      "text": "Po desiatich rokoch sa vracia dorast, hrá IV. ligu U19 Západoslovenského zväzu. Na ihrisku pribudol závlahový systém.",
+      "zdroj": "Radošinské noviny 2/2025"
+    },
+    {
+      "rok": "2025",
+      "text": "Vianočný futbalový turnaj 20. decembra na štadióne: štyri tímy, finále Káčerovské – Fratelli rozhodli až penalty, vyhralo Káčerovské.",
+      "zdroj": "Radošinské noviny 1/2026"
+    }
+  ],
+  "obec": {
+    "_zdroj": "web obce Radošina (Dejiny obce, Kultúrne pamiatky); Radošinské naivné divadlo – TASR (teraz.sk), Rok divadla (theatre.sk); víno – Visit Bratislava (Pivnica Radošina), Wikipédia en (Klevner)",
+    "fakty": [
+      {
+        "k": "80 000 rokov",
+        "t": "Jaskyňa Čertova pec nad obcou bola osídlená už v strednom paleolite. Od roku 1981 je chráneným prírodným výtvorom."
+      },
+      {
+        "k": "1249",
+        "t": "Názov obce pochádza pravdepodobne od potoka, ktorý listina nitrianskeho archidiakona Vincenta spomína ako Radusna."
+      },
+      {
+        "k": "16. storočie",
+        "t": "Radošina sa spomína ako mestečko (oppidum). Kaštieľ v strede obce slúžil ako letné sídlo nitrianskych biskupov."
+      },
+      {
+        "k": "25. 12. 1963",
+        "t": "Radošinský rodák Stanislav Štepka tu založil Radošinské naivné divadlo, ktoré neskôr presídlilo do Bratislavy."
+      },
+      {
+        "k": "Víno",
+        "t": "Biskupský majer mal v 18. storočí vínny sklep na 500 urien vína. Meno Radošinský Klevner dnes nesie cuvée z miestnej pivnice."
+      }
+    ]
+  },
+  "uspechy": [
+    {
+      "rok": "2024/25",
+      "text": "víťaz VII. ligy ObFZ Topoľčany, postup do VI. ligy"
+    },
+    {
+      "rok": "2018/19, 2022/23",
+      "text": "2. miesto vo VII. lige ObFZ Topoľčany"
+    },
+    {
+      "rok": "2014/15",
+      "text": "3. miesto v V. lige Stred"
+    }
+  ],
+  "sutaze": {
+    "_pozn": "čitateľné názvy súťaží namiesto skratiek a názvov so sponzormi zo Sportnetu",
+    "Slovnaft Cup": "Slovnaft Cup",
+    "VI. liga Severovýchod Macron | yoursport  ZsFZ": "VI. liga Severovýchod",
+    "IV. liga  U19  Macron | yoursport  ZsFZ": "IV. liga U19",
+    "IV. liga U19 Macron | yoursport ZsFZ": "IV. liga U19",
+    "III. liga-prípravka-U11- ObFZ TO": "III. liga prípraviek U11",
+    "IV.liga - Ž - U15 - ObFZ TO": "IV. liga starších žiakov U15"
+  },
+  "nazvy": {
+    "_pozn": "čitateľné názvy súperov namiesto úradných názvov a veľkých písmen zo Sportnetu",
+    "TJ - ŠK Radošina": "TJ-ŠK Radošina",
+    "FUTBALOVÝ KLUB SLOVAN ŠIMONOVANY - PARTIZÁNSKE": "Slovan Šimonovany-Partizánske",
+    "Futbalový klub Koniarovce": "FK Koniarovce",
+    "Mestský futbalový klub Baník Handlová": "MFK Baník Handlová",
+    "OFK obce Prašice": "OFK Prašice",
+    "TJ Družstevník Horná Nitra Nedožery-Brezany": "TJ Družstevník Nedožery-Brezany",
+    "ŠPORTOVÉ CENTRUM CHYNORANY": "ŠC Chynorany",
+    "ŠK VEGUM Dolné Vestenice": "ŠK Vegum Dolné Vestenice",
+    "OFK ČERMANY, o. z.": "OFK Čermany"
+  }
+}
