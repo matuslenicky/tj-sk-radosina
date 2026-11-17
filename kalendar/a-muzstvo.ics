@@ -1,0 +1,290 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//TJ-ŠK Radošina//Zapasy//SK
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:TJ-ŠK Radošina – A-mužstvo
+X-WR-TIMEZONE:Europe/Bratislava
+BEGIN:VTIMEZONE
+TZID:Europe/Bratislava
+BEGIN:DAYLIGHT
+TZOFFSETFROM:+0100
+TZOFFSETTO:+0200
+TZNAME:CEST
+DTSTART:19700329T020000
+RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU
+END:DAYLIGHT
+BEGIN:STANDARD
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0100
+TZNAME:CET
+DTSTART:19701025T030000
+RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:zapas-6a40bf33e5a4847e62e9044d@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20260725T170000
+DURATION:PT2H
+SUMMARY:A-mužstvo: OFK Kovarce – TJ-ŠK Radošina 2:1
+DESCRIPTION:Slovnaft Cup\, Predkolo\nZápas vonku
+LOCATION:OFK Kovarce
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765ec62c4077e4f88016a@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20260808T170000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ Slovan Preseľany – TJ-ŠK Radošina 1:1
+DESCRIPTION:VI. liga Severovýchod\, 1. kolo\nZápas vonku
+LOCATION:Štadión TJ Slovan Preseľany
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765bd62c4077e4f875919@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20260815T170000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ-ŠK Radošina – FK TJ Skačany 2:3
+DESCRIPTION:VI. liga Severovýchod\, 2. kolo\nDomáci zápas
+LOCATION:TJ ŠK Radošina
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765d162c4077e4f87a7ea@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20260823T170000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ Tatran Uhrovec – TJ-ŠK Radošina 0:1
+DESCRIPTION:VI. liga Severovýchod\, 3. kolo\nZápas vonku
+LOCATION:TJ Tatran Uhrovec
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765c062c4077e4f87633d@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20260829T170000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ-ŠK Radošina – ŠK Vegum Dolné Vestenice 1:6
+DESCRIPTION:VI. liga Severovýchod\, 4. kolo\nDomáci zápas
+LOCATION:TJ ŠK Radošina
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765cb62c4077e4f87904c@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20260905T160000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ Slovan Bojná – TJ-ŠK Radošina 2:0
+DESCRIPTION:VI. liga Severovýchod\, 5. kolo\nZápas vonku
+LOCATION:TJ Slovan Bojná
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765c262c4077e4f876897@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20260912T160000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ-ŠK Radošina – TJ Družstevník Jacovce 3:2
+DESCRIPTION:VI. liga Severovýchod\, 6. kolo\nDomáci zápas
+LOCATION:TJ ŠK Radošina
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765cd62c4077e4f8799e4@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20260919T153000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ Slovan Krušovce – TJ-ŠK Radošina 1:1
+DESCRIPTION:VI. liga Severovýchod\, 7. kolo\nZápas vonku
+LOCATION:Krušovce
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765c262c4077e4f876a30@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20260926T153000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ-ŠK Radošina – OFK Kovarce 3:0
+DESCRIPTION:VI. liga Severovýchod\, 8. kolo\nDomáci zápas
+LOCATION:TJ ŠK Radošina
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765c662c4077e4f8777d2@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20261003T150000
+DURATION:PT2H
+SUMMARY:A-mužstvo: FK Iskra Nováky – TJ-ŠK Radošina 2:2
+DESCRIPTION:VI. liga Severovýchod\, 9. kolo\nZápas vonku
+LOCATION:Futbalový štadión Nováky
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765c762c4077e4f877b76@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20261010T150000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ-ŠK Radošina – TJ Baník Sebedražie 0:3
+DESCRIPTION:VI. liga Severovýchod\, 10. kolo\nDomáci zápas
+LOCATION:TJ ŠK Radošina
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765cc62c4077e4f879577@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20261018T140000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ AC Žabokreky nad Nitrou – TJ-ŠK Radošina 4:2
+DESCRIPTION:VI. liga Severovýchod\, 11. kolo\nZápas vonku
+LOCATION:Futbalové ihrisko Žabokreky nad Nitrou
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765ce62c4077e4f879c21@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20261025T140000
+DURATION:PT2H
+SUMMARY:A-mužstvo: Slovan Šimonovany-Partizánske – TJ-ŠK Radošina 3
+ :2
+DESCRIPTION:VI. liga Severovýchod\, 12. kolo\nZápas vonku
+LOCATION:Šimonovany
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765cf62c4077e4f87a1e3@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20261031T140000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ-ŠK Radošina – OFK Ludanice 6:2
+DESCRIPTION:VI. liga Severovýchod\, 13. kolo\nDomáci zápas
+LOCATION:TJ ŠK Radošina
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765cb62c4077e4f878fe8@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20261107T133000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ Priehrada Nitrianske Rudno – TJ-ŠK Radošina 4:0
+DESCRIPTION:VI. liga Severovýchod\, 14. kolo\nZápas vonku
+LOCATION:Obecný štadion TJ Priehrada
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765ca62c4077e4f878eeb@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20261114T133000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ-ŠK Radošina – ŠC Chynorany 1:1
+DESCRIPTION:VI. liga Severovýchod\, 15. kolo\nDomáci zápas
+LOCATION:TJ ŠK Radošina
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765cb62c4077e4f879285@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20270306T143000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ-ŠK Radošina – TJ Slovan Preseľany
+DESCRIPTION:VI. liga Severovýchod\, 16. kolo\nDomáci zápas
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765d562c4077e4f87b7d1@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20270314T143000
+DURATION:PT2H
+SUMMARY:A-mužstvo: FK TJ Skačany – TJ-ŠK Radošina
+DESCRIPTION:VI. liga Severovýchod\, 17. kolo\nZápas vonku
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765d062c4077e4f87a4f8@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20270320T150000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ-ŠK Radošina – TJ Tatran Uhrovec
+DESCRIPTION:VI. liga Severovýchod\, 18. kolo\nDomáci zápas
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765dc62c4077e4f87d393@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20270327T150000
+DURATION:PT2H
+SUMMARY:A-mužstvo: ŠK Vegum Dolné Vestenice – TJ-ŠK Radošina
+DESCRIPTION:VI. liga Severovýchod\, 19. kolo\nZápas vonku
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765cd62c4077e4f879ba4@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20270403T160000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ-ŠK Radošina – TJ Slovan Bojná
+DESCRIPTION:VI. liga Severovýchod\, 20. kolo\nDomáci zápas
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765de62c4077e4f87da11@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20270410T160000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ Družstevník Jacovce – TJ-ŠK Radošina
+DESCRIPTION:VI. liga Severovýchod\, 21. kolo\nZápas vonku
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765ca62c4077e4f878bd2@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20270417T163000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ-ŠK Radošina – TJ Slovan Krušovce
+DESCRIPTION:VI. liga Severovýchod\, 22. kolo\nDomáci zápas
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765f262c4077e4f881045@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20270426T163000
+DURATION:PT2H
+SUMMARY:A-mužstvo: OFK Kovarce – TJ-ŠK Radošina
+DESCRIPTION:VI. liga Severovýchod\, 23. kolo\nZápas vonku
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765db62c4077e4f87cf7a@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20270502T170000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ-ŠK Radošina – FK Iskra Nováky
+DESCRIPTION:VI. liga Severovýchod\, 24. kolo\nDomáci zápas
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765f962c4077e4f8826b4@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20270509T170000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ Baník Sebedražie – TJ-ŠK Radošina
+DESCRIPTION:VI. liga Severovýchod\, 25. kolo\nZápas vonku
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765d362c4077e4f87b1c3@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20270516T170000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ-ŠK Radošina – TJ AC Žabokreky nad Nitrou
+DESCRIPTION:VI. liga Severovýchod\, 26. kolo\nDomáci zápas
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765ce62c4077e4f879f7c@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20270523T170000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ-ŠK Radošina – Slovan Šimonovany-Partizánske
+DESCRIPTION:VI. liga Severovýchod\, 27. kolo\nDomáci zápas
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765da62c4077e4f87ca40@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20270531T170000
+DURATION:PT2H
+SUMMARY:A-mužstvo: OFK Ludanice – TJ-ŠK Radošina
+DESCRIPTION:VI. liga Severovýchod\, 28. kolo\nZápas vonku
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765fa62c4077e4f882964@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20270607T170000
+DURATION:PT2H
+SUMMARY:A-mužstvo: TJ-ŠK Radošina – TJ Priehrada Nitrianske Rudno
+DESCRIPTION:VI. liga Severovýchod\, 29. kolo\nDomáci zápas
+END:VEVENT
+BEGIN:VEVENT
+UID:zapas-6a7765e062c4077e4f87e33f@tj-sk-radosina.sportnet
+DTSTAMP:20261117T141929Z
+DTSTART;TZID=Europe/Bratislava:20270614T170000
+DURATION:PT2H
+SUMMARY:A-mužstvo: ŠC Chynorany – TJ-ŠK Radošina
+DESCRIPTION:VI. liga Severovýchod\, 30. kolo\nZápas vonku
+END:VEVENT
+END:VCALENDAR
