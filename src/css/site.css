@@ -212,6 +212,15 @@ a:hover .teams-s { text-decoration: underline; }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } }
 /* ===== koniec základu, nasleduje skin.css webu ===== */
 
+/* tímy na úzkom displeji: poradie pod súťažou, stredný stĺpec sa nestlačí na nulu */
+@media (max-width: 459.98px) {
+  .teams { grid-template-columns: max-content minmax(0, 1fr); }
+  .teams a { grid-template-areas: 'n s' 'n l' 'n p'; row-gap: 2px; }
+  .teams-p { white-space: normal; }
+}
+/* meno klubu v hlavičke pri 320 px nesmie zájsť pod tlačidlo Menu */
+@media (max-width: 379.98px) { .hdr .brand-n { white-space: normal; line-height: 1.1; } .hdr .brand-s { display: none; } }
+
 /* TJ-ŠK Radošina – „Úzky stĺpec“. Biely papier, tmavomodrá a svetlomodrá z klubových farieb. */
 /* Gloock má pomlčku ako vlasovú linku (hrúbka 10/1000 em): v „Radošina – Preseľany“ pri 27 px nebola vidieť.
    Pomlčky v písme Gloock preto berieme z Literaty (rovnaký súbor ako text, nič navyše sa nesťahuje). */
